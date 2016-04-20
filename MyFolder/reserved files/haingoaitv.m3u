@@ -1,5 +1,7 @@
 #EXTM3U
 
+#EXTINF:0 tvg-logo="http://www.dw.com/cssi/dwlogo-print.gif",[COLOR yellow][B]DW[/B][/COLOR] (TV) (DE) (English)
+http://dwstream4-lh.akamaihd.net/i/dwstream4_live@131329/index_1_av-p.m3u8?sd=10&rebase=on
 #EXTINF:0 tvg-logo="https://raw.githubusercontent.com/cloudlist/repository.viplist/master/MyFolder/icons/life.png",[COLOR lime][B]Life[/B][/COLOR] (TV) (VN) (Vietnamese)
 http://hls75.lax.v247tv.com/lax86/HTV7/playlist.m3u8
 #EXTINF:0 tvg-logo="https://raw.githubusercontent.com/cloudlist/repository.viplist/master/MyFolder/icons/nhacviet.png",[COLOR lime][B]Nhạc Việt[/B][/COLOR] (TV) (US) (Vietnamese)

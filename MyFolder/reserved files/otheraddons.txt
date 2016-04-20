@@ -2,32 +2,48 @@
 
 #EXTINF:0 tvg-logo="https://raw.githubusercontent.com/cloudlist/repository.viplist/master/MyFolder/icons/sf.png",Super Favourites
 plugin://plugin.program.super.favourites
-#EXTINF:0 tvg-logo="https://raw.githubusercontent.com/cloudlist/repository.viplist/master/MyFolder/icons/lspro.png",LiveStreamsPro
-plugin://plugin.video.live.streamspro
 #EXTINF:0 tvg-logo="https://raw.githubusercontent.com/cloudlist/repository.viplist/master/MyFolder/icons/Plist.png",Playlist Loader
 plugin://plugin.video.playlistLoader
+#EXTINF:0 tvg-logo="https://raw.githubusercontent.com/cloudlist/repository.viplist/master/MyFolder/icons/lspro.png",LiveStreamsPro
+plugin://plugin.video.live.streamspro
+#EXTINF:0 tvg-logo="https://raw.githubusercontent.com/cloudlist/repository.viplist/master/MyFolder/icons/f4mtester.png",f4mTester
+plugin://plugin.video.f4mTester
+#EXTINF:0 tvg-logo="https://raw.githubusercontent.com/cloudlist/repository.viplist/master/MyFolder/icons/zemtv.png",ZemTV
+plugin://plugin.video.ZemTV-shani
+#EXTINF:0 tvg-logo="https://raw.githubusercontent.com/cloudlist/repository.viplist/master/MyFolder/icons/exodus.png",Exodus
+plugin://plugin.video.exodus
+#EXTINF:0 tvg-logo="https://raw.githubusercontent.com/cloudlist/repository.viplist/master/MyFolder/icons/phoenix.png",Phoenix
+plugin://plugin.video.phstreams
+#EXTINF:0 tvg-logo="https://raw.githubusercontent.com/cloudlist/repository.viplist/master/MyFolder/icons/salts.png",SALTS
+plugin://plugin.video.salts
+#EXTINF:0 tvg-logo="https://raw.githubusercontent.com/cloudlist/repository.viplist/master/MyFolder/icons/navix.png",Navi-X
+script://script.navi-x
+#EXTINF:0 tvg-logo="https://raw.githubusercontent.com/cloudlist/repository.viplist/master/MyFolder/icons/backup.png",Backup
+script://script.xbmcbackup
+#EXTINF:0 tvg-logo="https://raw.githubusercontent.com/cloudlist/repository.viplist/master/MyFolder/icons/youtube.png",YouTube
+plugin://plugin.video.youtube
 #EXTINF:0 tvg-logo="https://raw.githubusercontent.com/cloudlist/repository.viplist/master/MyFolder/icons/vmf.png",[B]VietMediaF - Videos[/B]
 plugin://plugin.video.vietmediaF
 #EXTINF:0 tvg-logo="https://raw.githubusercontent.com/cloudlist/repository.viplist/master/MyFolder/icons/vmf.png",[B]VietMediaF - Music[/B]
 plugin://plugin.audio.vietmediaF
+#EXTINF:0 tvg-logo="https://raw.githubusercontent.com/cloudlist/repository.viplist/master/MyFolder/icons/xshare.png",Xshare -XBMC HD Video
+plugin://plugin.video.xshare
+#EXTINF:0 tvg-logo="https://raw.githubusercontent.com/cloudlist/repository.viplist/master/MyFolder/icons/itv.png",ITV Plus
+plugin://plugin.video.itvplus
+#EXTINF:0 tvg-logo="https://raw.githubusercontent.com/cloudlist/repository.viplist/master/MyFolder/icons/sbtn.png",SBTN TV
+plugin://plugin.video.sbtntv
 #EXTINF:0 tvg-logo="https://raw.githubusercontent.com/cloudlist/repository.viplist/master/MyFolder/icons/topshows.png",Top Shows
 plugin://plugin.video.topshows
 #EXTINF:0 tvg-logo="https://raw.githubusercontent.com/cloudlist/repository.viplist/master/MyFolder/icons/kodi4vnlauncher.png",Kodi4VN Launcher
 plugin://plugin.video.kodi4vn.launcher
+#EXTINF:0 tvg-logo="https://raw.githubusercontent.com/cloudlist/repository.viplist/master/MyFolder/icons/tvvn.png",TV Viet Nam
+plugin://plugin.video.tvvn
 #EXTINF:0 tvg-logo="https://raw.githubusercontent.com/cloudlist/repository.viplist/master/MyFolder/icons/csn.png",Chia Se Nhac
 plugin://plugin.video.chiasenhac
-#EXTINF:0 tvg-logo="https://raw.githubusercontent.com/cloudlist/repository.viplist/master/MyFolder/icons/hcmlike.png",HCMLIKE - TV Online
-plugin://plugin.video.hcmlike-tvonline
 #EXTINF:0 tvg-logo="https://raw.githubusercontent.com/cloudlist/repository.viplist/master/MyFolder/icons/hieuhien.png",Hieuhien.vn Liveshow
 plugin://plugin.video.hieuhien.vn.liveshow
 #EXTINF:0 tvg-logo="https://raw.githubusercontent.com/cloudlist/repository.viplist/master/MyFolder/icons/hieuhien.png",HieuHienLiveShow
 plugin://plugin.video.HieuHienLiveShow
-#EXTINF:0 tvg-logo="https://raw.githubusercontent.com/cloudlist/repository.viplist/master/MyFolder/icons/itv.png",ITV Plus
-plugin://plugin.video.itvplus
-#EXTINF:0 tvg-logo="https://raw.githubusercontent.com/cloudlist/repository.viplist/master/MyFolder/icons/tvvn.png",TV Viet Nam
-plugin://plugin.video.tvvn
-#EXTINF:0 tvg-logo="https://raw.githubusercontent.com/cloudlist/repository.viplist/master/MyFolder/icons/xshare.png",Xshare -XBMC HD Video
-plugin://plugin.video.xshare
 #EXTINF:0 tvg-logo="https://raw.githubusercontent.com/cloudlist/repository.viplist/master/MyFolder/icons/behocchu.png",Be Hoc Chu
 plugin://plugin.video.FlashCards
 #EXTINF:0 tvg-logo="https://raw.githubusercontent.com/cloudlist/repository.viplist/master/MyFolder/icons/canhac.png",Ca Nhac Giai Tri

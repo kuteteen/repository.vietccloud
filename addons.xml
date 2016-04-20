@@ -722,6 +722,26 @@ http://www.hometheater.co.il</description>
 </extension>
 </addon>
 
+<!--suppress ALL -->
+<addon id="plugin.video.salts" version="2.0.28" name="Stream All The Sources" provider-name="tknorris">
+    <requires>
+        <import addon="xbmc.python" version="2.1.0"/>
+        <import addon="script.module.urlresolver" version="2.2.0"/>
+        <import addon="script.module.myconnpy" version="1.1.6" />
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>video</provides>
+    </extension>
+     <extension point="xbmc.service" library="service.py" start="startup"/>
+    <extension point="xbmc.addon.metadata">
+        <summary>Stream video from many difference sources</summary>
+        <description>This addon uses trakt.tv for most show and movie meta data and uses a variety of websites for hoster sources</description>
+        <platform>all</platform>
+        <website>http://tvaddons.ag/</website>
+		<forum>http://forums.tvaddons.ag/forums/180-TKNORRIS-RELEASE-REPOSITORY</forum>
+	</extension>
+</addon>
+
 <addon id="plugin.video.sbtntv"
        name="SBTN TV"
        version="1.0.1"
@@ -1273,6 +1293,30 @@ Rất mong các bạn tuân thủ và tạo động lực cho chúng tôi trong 
 		<description>Download and install add-ons by smokdpi[CR][CR][B]Artwork by @konsumer420[/B]</description>
 		<platform>all</platform>
 	</extension>
+</addon>
+
+<addon id="repository.tknorris.release" name="tknorris Release Repository" version="1.0.2" provider-name="tknorris">
+    <extension point="xbmc.addon.repository" name="tknorris release repository">
+        <dir>
+            <info compressed="false">https://offshoregit.com/tvaresolvers/tva-common-repository/raw/master/addons.xml</info>
+            <checksum>https://offshoregit.com/tvaresolvers/tva-common-repository/raw/master/addons.xml.md5</checksum>
+            <datadir zip="true">https://offshoregit.com/tvaresolvers/tva-common-repository/raw/master/zips/</datadir>
+        </dir>
+        <info compressed="false">https://offshoregit.com/tknorris/tknorris-release-repo/raw/master/addons.xml</info>
+        <checksum>https://offshoregit.com/tknorris/tknorris-release-repo/raw/master/addons.xml.md5</checksum>
+        <datadir zip="true">https://offshoregit.com/tknorris/tknorris-release-repo/raw/master/zips/</datadir>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <summary>This is tknorris's release repository</summary>
+        <description>This repository contains official releases of my Kodi/XBMC addons
+
+Addons Included
+    - Stream All The Sources
+    - 1Channel
+    - 1Channel Themepaks
+        </description>
+        <platform>all</platform>
+    </extension>
 </addon>
 
 <addon id="repository.traitravinh" name="TraiTraVinh's Testing Repo" version="1.0" provider-name="traitravinh">

@@ -47,7 +47,14 @@ plugin://plugin.video.youtube/play/?video_id=2cnoAmwg4Ko
 plugin://plugin.video.youtube/play/?video_id=NXDP2u5Gj0g
 #EXTINF:0 tvg-logo="https://i.ytimg.com/vi/t55vy-DD4bo/hqdefault.jpg",How-to setup Playlist Loader 
 plugin://plugin.video.youtube/play/?video_id=t55vy-DD4bo
-
+#EXTINF:0 tvg-logo="https://i.ytimg.com/vi/LRPGm0AOJqI/hqdefault.jpg",Quick Power Code by PIPCAN
+plugin://plugin.video.youtube/play/?video_id=LRPGm0AOJqI
+#EXTINF:0 tvg-logo="https://i.ytimg.com/vi/48Oja36FWGU/hqdefault.jpg",Kodi Add-on Development Part 1 by PIPCAN
+plugin://plugin.video.youtube/play/?video_id=48Oja36FWGU
+#EXTINF:0 tvg-logo="https://i.ytimg.com/vi/Pun-dCynBu4/hqdefault.jpg",Kodi Coding Tutorial 1 Regex Audio Fixed by PIPCAN
+plugin://plugin.video.youtube/play/?video_id=Pun-dCynBu4
+#EXTINF:0 tvg-logo="https://i.ytimg.com/vi/Pun-dCynBu4/hqdefault.jpg",HOW TO CODE A KODI XBMC ADDON TUTORIAL BY PIPCAN
+plugin://plugin.video.youtube/play/?video_id=Tstr7D0bXhQ
 
 #EXTINF:0 tvg-logo="https://yt3.ggpht.com/-b-RsqDVfnKA/AAAAAAAAAAI/AAAAAAAAAAA/inzrLSRPB-o/s100-c-k-no/photo.jpg",[COLOR cyan][B]Dạy Nhau Học - Python Programming[/B][/COLOR]
 NoLinkRequired
@@ -189,7 +196,7 @@ plugin://plugin.video.youtube/play/?video_id=gQDiiUcWaic
 plugin://plugin.video.youtube/play/?video_id=2L__ZasyFEI
 
 
-#EXTINF:0 tvg-logo="https://yt3.ggpht.com/-SN1RQ4kN5bM/AAAAAAAAAAI/AAAAAAAAAAA/T39gSKk4e2g/s88-c-k-no/photo.jpg",[COLOR green]Derek Banas - [/COLOR]Learn Python in One Video 
+#EXTINF:0 tvg-logo="https://yt3.ggpht.com/-SN1RQ4kN5bM/AAAAAAAAAAI/AAAAAAAAAAA/T39gSKk4e2g/s88-c-k-no/photo.jpg",[COLOR orangered]Derek Banas - [/COLOR]Learn Python in One Video 
 plugin://plugin.video.youtube/play/?video_id=N4mEzFDjqtA
 
 
@@ -231,6 +238,10 @@ plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&
 plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=http%3A%2F%2Fwww.crummy.com%2Fsoftware%2FBeautifulSoup%2Fbs4%2Fdoc%2F
 #EXTINF:0 tvg-logo="kodiaddons.png",Regular Expressions
 plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=http%3A%2F%2Fwww.zytrax.com%2Ftech%2Fweb%2Fregex.htm
+#EXTINF:0 tvg-logo="kodiaddons.png",RegEx
+plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fdocs.python.org%2F2%2Flibrary%2Fre.html
+#EXTINF:0 tvg-logo="kodiaddons.png",Xử lý mẫu chuỗi (Regular Expression) trong JavaScript
+plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=http%3A%2F%2Fsinhvienit.net%2Fforum%2Fxu-ly-mau-chuoi-regular-expression-trong-javascript.36238.html
 #EXTINF:0 tvg-logo="kodiaddons.png",Ten+ best online regex testers
 plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=http%3A%2F%2Fscraping.pro%2F10-best-online-regex-testers%2F
 #EXTINF:0 tvg-logo="kodiaddons.png",Find hidden stream URL
@@ -273,6 +284,8 @@ plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&
 plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fgithub.com%2Fhieuhienvn%2Fhieuhien.vn%2Fraw%2Fmaster%2Fzips%2F
 #EXTINF:0 tvg-logo="kodi4viet.png",Hockeyanon Repo
 plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fgithub.com%2Fhockeyanon%2Fxbmc-repo
+#EXTINF:0 tvg-logo="kodi4viet.png",Kolifanes Repo [COLOR red][B](YouTube Add-on Keeper)[/B][/COLOR]
+plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fgithub.com%2FKolifanes%2Fplugin.video.youtube
 #EXTINF:0 tvg-logo="kodi4viet.png",lnt900 Repo
 plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Fgithub.com%2Flnt900%2Fkodi.repo.lnt900
 #EXTINF:0 tvg-logo="kodi4viet.png",nguyentuan Repo
@@ -319,6 +332,8 @@ plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&
 plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=http%3A%2F%2Flangsongviet.com%2Ffta4vnForum%2Fupload%2Fforumdisplay.php%2F513-Android-TV-Apple-TV%3Fs%3D4f7548c51e31676f377b822daec02f4b
 #EXTINF:0 tvg-logo="kodi4viet.png",[COLOR orange]Diễn Đàn Kodi Việt[/COLOR]
 plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=http%3A%2F%2Fkodiviet.com%2F
+#EXTINF:0 tvg-logo="kodi4viet.png",[COLOR orange]Diễn Đàn Sinh Viên IT[/COLOR]
+plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=http%3A%2F%2Fsinhvienit.net%2F%40tut%2F%23trang-chu%2F
 #EXTINF:0 tvg-logo="kodi4viet.png",[COLOR orange]Diễn Đàn tinhte.vn[/COLOR]
 plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3A%2F%2Ftinhte.vn%2Fforums%2F
 

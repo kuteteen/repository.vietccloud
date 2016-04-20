@@ -1,0 +1,678 @@
+#EXTM3U
+
+
+#EXTINF:-1,[COLOR yellow][B]Cài đặt addon f4mTester trong repo shani trước khi xem TV[/B][/COLOR]
+http://textuploader.com
+
+#EXTINF:-1,[COLOR red][B]Updated ngày 18.04.16[/B][/COLOR]
+http://textuploader.com
+
+#EXTINF:-1,OteSports8HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/681.ts
+#EXTINF:-1,OteSports7HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/682.ts
+#EXTINF:-1,OteSport6HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/683.ts
+#EXTINF:-1,OteSport5HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/684.ts
+#EXTINF:-1,OteSport4HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/685.ts
+#EXTINF:-1,OteSport3HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/686.ts
+#EXTINF:-1,OteSport2HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/687.ts
+#EXTINF:-1,OteSport1HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/688.ts
+#EXTINF:-1,Sky Sports News HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/254.ts
+#EXTINF:-1,Sky Sports News
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/255.ts
+#EXTINF:-1,Sky Sports 1
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/267.ts
+#EXTINF:-1,Sky Sports 1 HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/266.ts
+#EXTINF:-1,Sky Sports 2
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/265.ts
+#EXTINF:-1,Sky Sports 2 HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/264.ts
+#EXTINF:-1,Sky Sports 3
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/263.ts
+#EXTINF:-1,Sky Sports 3 HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/262.ts
+#EXTINF:-1,Sky Sports 4
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/261.ts
+#EXTINF:-1,Sky Sports 4 HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/260.ts
+#EXTINF:-1,Sky Sports 5
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/259.ts
+#EXTINF:-1,Sky Sports 5 HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/258.ts
+#EXTINF:-1,Sky Sports F1
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/257.ts
+#EXTINF:-1,Sky Sports F1 HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/256.ts
+#EXTINF:-1,BT Sport Europe
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/359.ts
+#EXTINF:-1,BT Sport 2 HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/360.ts
+#EXTINF:-1,BT Sport 2
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/361.ts
+#EXTINF:-1,BT Sport 1 HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/362.ts
+#EXTINF:-1,BT Sport 1
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/363.ts
+#EXTINF:-1,Box Nation
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/364.ts
+#EXTINF:-1,Eurosport 2
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/332.ts
+#EXTINF:-1,Eurosport
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/333.ts
+#EXTINF:-1,ESPN HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/334.ts
+#EXTINF:-1,ESPN
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/335.ts
+#EXTINF:-1,Sportklub 3
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/653.ts
+#EXTINF:-1,Sportklub 2
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/654.ts
+#EXTINF:-1,Sportklub 1
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/655.ts
+#EXTINF:-1,NL: Fox Sports 5
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/664.ts
+#EXTINF:-1,NL: Fox Sports 4
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/665.ts
+#EXTINF:-1,NL: Fox Sports 3
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/666.ts
+#EXTINF:-1,NL: Fox Sports 2
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/667.ts
+#EXTINF:-1,NL: Fox Sports 1
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/668.ts
+#EXTINF:-1,IT: RAI SPORT 2
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/672.ts
+#EXTINF:-1,IT: RAI SPORT 1
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/673.ts
+#EXTINF:-1,DE: Sky Sport 2
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/674.ts
+#EXTINF:-1,DE: Sky Sport 1
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/675.ts
+#EXTINF:-1,CTH Channel Stadium X HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/693.ts
+#EXTINF:-1,CTH Channel Stadium 6 HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/694.ts
+#EXTINF:-1,CTH Channel Stadium 5 HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/695.ts
+#EXTINF:-1,CTH Channel Stadium 4 HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/696.ts
+#EXTINF:-1,CTH Channel Stadium 3 HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/697.ts
+#EXTINF:-1,CTH Channel Stadium 2 HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/698.ts
+#EXTINF:-1,CTH Channel Stadium 1 HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/699.ts
+#EXTINF:-1,Astro4
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/700.ts
+#EXTINF:-1,Astro3
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/701.ts
+#EXTINF:-1,Astro2
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/702.ts
+#EXTINF:-1,Astro1
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/703.ts
+#EXTINF:-1,arenasports5
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/676.ts
+#EXTINF:-1,arena4
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/677.ts
+#EXTINF:-1,arena3
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/678.ts
+#EXTINF:-1,arena2
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/679.ts
+#EXTINF:-1,arena1
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/680.ts
+#EXTINF:-1,DE:FOX SPORTS 1
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/1047.ts
+#EXTINF:-1,NL: Fox Sport 1
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/1504.ts
+#EXTINF:-1,DE:FOX SPORTS 2
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/1046.ts
+#EXTINF:-1,NL: Fox Sport 2
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/1503.ts
+#EXTINF:-1,NL:Fox Sport 3
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/1493.ts
+#EXTINF:-1,NL: Fox Sport 3
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/1502.ts
+#EXTINF:-1,NL:Fox Sport 4*
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/1492.ts
+#EXTINF:-1,NL:Fox Sport 5
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/1491.ts
+#EXTINF:-1,Sport TV 1 PT
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/1969.ts
+#EXTINF:-1,PT-SPORT TV 2
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/889.ts
+#EXTINF:-1,PT-SPORT TV 3
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/1273.ts
+#EXTINF:-1,Sky Sport24 HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://pstv.no-ip.net:24005/live/LjIr6xwcQU/mBvIhuGrL7/44.ts
+#EXTINF:-1,Sky Sport 1 HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://pstv.no-ip.net:24005/live/LjIr6xwcQU/mBvIhuGrL7/45.ts
+#EXTINF:-1,Sky Sport 2 HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://pstv.no-ip.net:24005/live/LjIr6xwcQU/mBvIhuGrL7/46.ts
+#EXTINF:-1,Sky Sport 3 HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://pstv.no-ip.net:24005/live/LjIr6xwcQU/mBvIhuGrL7/47.ts
+#EXTINF:-1,Fox Sports HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://pstv.no-ip.net:24005/live/LjIr6xwcQU/mBvIhuGrL7/51.ts
+#EXTINF:-1,Sky Sport Plus HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://pstv.no-ip.net:24005/live/LjIr6xwcQU/mBvIhuGrL7/48.ts
+#EXTINF:-1,Sky Sport F1 HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://pstv.no-ip.net:24005/live/LjIr6xwcQU/mBvIhuGrL7/49.ts
+#EXTINF:-1,Sky Sport MotoGP HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://pstv.no-ip.net:24005/live/LjIr6xwcQU/mBvIhuGrL7/50.ts
+#EXTINF:-1,Sportitalia
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://pstv.no-ip.net:24005/live/LjIr6xwcQU/mBvIhuGrL7/52.ts
+#EXTINF:-1,Eurosport
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://pstv.no-ip.net:24005/live/LjIr6xwcQU/mBvIhuGrL7/53.ts
+#EXTINF:-1,Eurosport 2
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://pstv.no-ip.net:24005/live/LjIr6xwcQU/mBvIhuGrL7/54.ts
+#EXTINF:-1,SuperTennis HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://pstv.no-ip.net:24005/live/LjIr6xwcQU/mBvIhuGrL7/56.ts
+
+#EXTINF:-1,Sky Sport24
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://pstv.no-ip.net:24005/live/LjIr6xwcQU/mBvIhuGrL7/1736.ts
+#EXTINF:-1,Sky Sport 1
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://pstv.no-ip.net:24005/live/LjIr6xwcQU/mBvIhuGrL7/1737.ts
+#EXTINF:-1,Sky Sport 2
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://pstv.no-ip.net:24005/live/LjIr6xwcQU/mBvIhuGrL7/1738.ts
+#EXTINF:-1,Sky Sport 3
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://pstv.no-ip.net:24005/live/LjIr6xwcQU/mBvIhuGrL7/1739.ts
+#EXTINF:-1,Fox Sports
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://pstv.no-ip.net:24005/live/LjIr6xwcQU/mBvIhuGrL7/1742.ts
+#EXTINF:-1,Sky Sport Plus
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://pstv.no-ip.net:24005/live/LjIr6xwcQU/mBvIhuGrL7/1743.ts
+#EXTINF:-1,Sky Sport F1
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://pstv.no-ip.net:24005/live/LjIr6xwcQU/mBvIhuGrL7/1740.ts
+#EXTINF:-1,Sky Sport MotoGP
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://pstv.no-ip.net:24005/live/LjIr6xwcQU/mBvIhuGrL7/1741.ts
+#EXTINF:-1,SuperTennis
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://pstv.no-ip.net:24005/live/LjIr6xwcQU/mBvIhuGrL7/1744.ts
+
+#EXTINF:-1,beIN Sport 1 HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://pstv.no-ip.net:24005/live/LjIr6xwcQU/mBvIhuGrL7/214.ts
+#EXTINF:-1,beIN Sport 2 HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://pstv.no-ip.net:24005/live/LjIr6xwcQU/mBvIhuGrL7/215.ts
+#EXTINF:-1,beIN Sport 3 HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://pstv.no-ip.net:24005/live/LjIr6xwcQU/mBvIhuGrL7/216.ts
+#EXTINF:-1,beIN Sport 4 HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://pstv.no-ip.net:24005/live/LjIr6xwcQU/mBvIhuGrL7/217.ts
+#EXTINF:-1,beIN Sport 5 HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://pstv.no-ip.net:24005/live/LjIr6xwcQU/mBvIhuGrL7/218.ts
+#EXTINF:-1,beIN Sport 6 HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://pstv.no-ip.net:24005/live/LjIr6xwcQU/mBvIhuGrL7/219.ts
+#EXTINF:-1,beIN Sport 7 HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://pstv.no-ip.net:24005/live/LjIr6xwcQU/mBvIhuGrL7/220.ts
+#EXTINF:-1,beIN Sport 8 HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://pstv.no-ip.net:24005/live/LjIr6xwcQU/mBvIhuGrL7/221.ts
+#EXTINF:-1,beIN Sport 9 HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://pstv.no-ip.net:24005/live/LjIr6xwcQU/mBvIhuGrL7/222.ts
+#EXTINF:-1,beIN Sports 10 HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://pstv.no-ip.net:24005/live/LjIr6xwcQU/mBvIhuGrL7/1773.ts
+
+#EXTINF:-1,AR: BEIN News
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/2073.ts
+#EXTINF:-1,BEINSPORT
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/2280.ts
+#EXTINF:-1,BEIN SPORT HD1
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/1064.ts
+#EXTINF:-1,BEIN SPORT HD2
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/1057.ts
+#EXTINF:-1,BEIN SPORT HD3
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/1056.ts
+#EXTINF:-1,BEIN SPORT HD4
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/1055.ts
+#EXTINF:-1,BEIN SPORT HD5
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/1054.ts
+#EXTINF:-1,BEIN SPORT HD6
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/1053.ts
+#EXTINF:-1,BEIN SPORT HD7
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/1052.ts
+#EXTINF:-1,BEIN SPORT HD8
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/1051.ts
+#EXTINF:-1,BEIN SPORT HD9
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/1050.ts
+#EXTINF:-1,BEIN SPORT HD10
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/1063.ts
+#EXTINF:-1,BEIN SPORT HD11
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/1062.ts
+#EXTINF:-1,BEIN SPORT HD12
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/1061.ts
+#EXTINF:-1,AR: BEINSPORTS-13HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/2069.ts
+#EXTINF:-1,AR: BEINSPORTS14HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/2070.ts
+#EXTINF:-1,AR: BEINSPORTS15HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/2071.ts
+#EXTINF:-1,AR: BEINSPORTS16HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/2072.ts
+#EXTINF:-1,AR_BEIN_SPORTS_1HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/2627.ts
+#EXTINF:-1,AR_BEIN_SPORTS_2HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/2628.ts
+#EXTINF:-1,AR_BEIN_SPORTS_3HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/2629.ts
+#EXTINF:-1,AR_BEIN_SPORTS_4HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/2630.ts
+#EXTINF:-1,AR_BEIN_SPORTS_5HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/2631.ts
+#EXTINF:-1,AR_BEIN_SPORTS_6HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/2632.ts
+#EXTINF:-1,AR_BEIN_SPORTS_7HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/2633.ts
+#EXTINF:-1,AR_BEIN_SPORTS_8HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/2634.ts
+#EXTINF:-1,AR_BEIN_SPORTS_9HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/2635.ts
+#EXTINF:-1,AR_BEIN_SPORTS_10HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/2636.ts
+#EXTINF:-1,AR_BEIN_SPORTS_11HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/2637.ts
+#EXTINF:-1,AR_BEIN_SPORTS_12HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/2638.ts
+#EXTINF:-1,AR_BEIN_SPORTS_13HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/2639.ts
+#EXTINF:-1,AR_BEIN_SPORTS_14HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/2640.ts
+#EXTINF:-1,AR_BEIN_SPORTS_15HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/2641.ts
+#EXTINF:-1,AR_BEIN_SPORTS_16HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/2642.ts
+
+#EXTINF:-1,FR: SPORTS+
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/2519.ts
+#EXTINF:-1,FR: SPORT+
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/2518.ts
+#EXTINF:-1,FR: INFO SPORT+
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/2520.ts
+#EXTINF:-1,FR: Ma Chaine Sport
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/2496.ts
+#EXTINF:-1,FR: Eurosport-2
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/1986.ts
+#EXTINF:-1,FR: EuroSport 1 HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/1400.ts
+#EXTINF:-1,FR: CANAL  SPORT HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/1003.ts
+#EXTINF:-1,FR: BEINSPORT_MAX5
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/1921.ts
+#EXTINF:-1,FR: BEINSPORT MAX 8
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/1918.ts
+#EXTINF:-1,FR: BEINSPORT MAX 7
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/1919.ts
+#EXTINF:-1,FR: BEINSPORT MAX 6
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/1920.ts
+#EXTINF:-1,FR: beINSport 2 HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/1033.ts
+#EXTINF:-1,FR: beINSport 1 HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/1032.ts
+#EXTINF:-1,FR: beINSport  3 HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/1034.ts
+#EXTINF:-1,FR: BEIN MAX 4
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/1922.ts
+
+#EXTINF:-1,UK: Sky Sports News HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/818.ts
+#EXTINF:-1,UK: Sky Sports F1 HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/819.ts
+#EXTINF:-1,UK: Sky Sports 5 HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/820.ts
+#EXTINF:-1,UK: Sky Sports 4 HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/821.ts
+#EXTINF:-1,UK: Sky Sports 3 HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/822.ts
+#EXTINF:-1,UK: Sky Sports 2 HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/823.ts
+#EXTINF:-1,UK: Sky Sports 1 HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/824.ts
+#EXTINF:-1,UK: Sky Setanta Sports
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/2160.ts
+#EXTINF:-1,UK:  SKY BT Sports 2 HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/1487.ts
+#EXTINF:-1,UK: SKY BT Sports 1 HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/1488.ts
+#EXTINF:-1,UK: BTSport Europe HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/2737.ts
+#EXTINF:-1,UK: FOX SPORTS
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/2169.ts
+#EXTINF:-1,UK: Eurosport 1 HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/1872.ts
+#EXTINF:-1,UK: ESPN HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/1871.ts
+
+#EXTINF:-1,US: NBC Golf
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/2210.ts
+#EXTINF:-1,US: NBA TV
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/2209.ts
+#EXTINF:-1,US: Fox Sports  2
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/2213.ts
+#EXTINF:-1,US: Fox Sports  1
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/2212.ts
+#EXTINF:-1,US: Fox Sports 2
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/2208.ts
+#EXTINF:-1,US: Fox Sports 1
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/2207.ts
+#EXTINF:-1,US: CNBC
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/2203.ts
+#EXTINF:-1,US: Astro SuperSport 4
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/2217.ts
+#EXTINF:-1,US: TSN 5
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/2322.ts
+#EXTINF:-1,US: TSN 3
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/2321.ts
+#EXTINF:-1,US: ESPN
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/2323.ts
+#EXTINF:-1,US: BEIN SPORT
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/2320.ts
+#EXTINF:-1,US: AFN Sports HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/2330.ts
+#EXTINF:-1,US: AFN Sports 2
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/2331.ts
+#EXTINF:-1,US: Astro SuperSport 3
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/2216.ts
+#EXTINF:-1,US: Astro SuperSport 2
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/2215.ts
+#EXTINF:-1,US: Astro SuperSport 1
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/2214.ts
+#EXTINF:-1,VIASAT Sports
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/1972.ts
+#EXTINF:-1,VIASAT Football
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/1971.ts
+
+#EXTINF:-1,EX-YU: ARENA SPORT 5 HR
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/1547.ts
+#EXTINF:-1,EX-YU: ARENA SPORT 4 HR
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/1546.ts
+#EXTINF:-1,EX-YU: ARENA SPORT 4
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/1551.ts
+#EXTINF:-1,EX-YU: ARENA SPORT 3 HR
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/1545.ts
+#EXTINF:-1,EX-YU: ARENA SPORT 3
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/1550.ts
+#EXTINF:-1,EX-YU: ARENA SPORT 2 HR
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/1544.ts
+#EXTINF:-1,EX-YU: ARENA SPORT 2
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/1549.ts
+#EXTINF:-1,EX-YU: ARENA SPORT 1 HR
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/1543.ts
+#EXTINF:-1,EX-YU: ARENA SPORT 1
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/1548.ts
+
+#EXTINF:-1,SPORTS | CTH Stadium 6
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/1690.ts
+#EXTINF:-1,SPORTS | CTH Stadium 5
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/1689.ts
+#EXTINF:-1,SPORTS | CTH Stadium 4
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/1688.ts
+#EXTINF:-1,SPORTS | CTH Stadium 3
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/1687.ts
+#EXTINF:-1,SPORTS | CTH Stadium 2
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/1686.ts
+#EXTINF:-1,SPORTS | CTH Stadium 1
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://ORBIT-IPTV.COM:2500/live/nadeem/nadeem/1685.ts
+
+
+#EXTINF:-1,OteCinema4HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/689.ts
+#EXTINF:-1,OteCinema3
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/690.ts
+#EXTINF:-1,OteCinema2HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/691.ts
+#EXTINF:-1,OteCinema1HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/692.ts
+#EXTINF:-1,challange
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/704.ts
+#EXTINF:-1,BBC4 HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/367.ts
+#EXTINF:-1,BBC3 HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/369.ts
+#EXTINF:-1,BBC1
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/373.ts
+#EXTINF:-1,BBC1 HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/372.ts
+#EXTINF:-1,BBC2
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/371.ts
+#EXTINF:-1,BBC2 HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/370.ts
+#EXTINF:-1,BBC3
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/368.ts
+#EXTINF:-1,BBC4
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/366.ts
+#EXTINF:-1,ITV1
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/315.ts
+#EXTINF:-1,ITV1 HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/313.ts
+#EXTINF:-1,ITV1 1
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/314.ts
+#EXTINF:-1,ITV2
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/312.ts
+#EXTINF:-1,ITV3
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/311.ts
+#EXTINF:-1,ITV4
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/310.ts
+#EXTINF:-1,ITV Encore
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/316.ts
+#EXTINF:-1,ITV Be
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/317.ts
+#EXTINF:-1,Alibi
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/377.ts
+#EXTINF:-1,5USA
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/378.ts
+#EXTINF:-1,5Star
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/379.ts
+#EXTINF:-1,4Seven
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/380.ts
+#EXTINF:-1,3e
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/381.ts
+#EXTINF:-1,Sky1
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/253.ts
+#EXTINF:-1,Sky2
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/252.ts
+#EXTINF:-1,Sky Living
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/279.ts
+#EXTINF:-1,Sky Atlantic
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/280.ts
+#EXTINF:-1,Sky Arts 1
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/281.ts
+#EXTINF:-1,Yesterday
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/233.ts
+#EXTINF:-1,Watch
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/234.ts
+#EXTINF:-1,Viva
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/235.ts
+#EXTINF:-1,Vintage TV
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/236.ts
+#EXTINF:-1,VH1
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/237.ts
+#EXTINF:-1,UTV
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/238.ts
+#EXTINF:-1,Universal
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/239.ts
+#EXTINF:-1,TV3
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/240.ts
+#EXTINF:-1,Turbo
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/241.ts
+#EXTINF:-1,Travel Channel
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/244.ts
+#EXTINF:-1,TLC
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/245.ts
+#EXTINF:-1,The Vault
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/246.ts
+#EXTINF:-1,TG4
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/247.ts
+#EXTINF:-1,TCM
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/248.ts
+#EXTINF:-1,Syfy UK
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/249.ts
+#EXTINF:-1,STV
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/250.ts
+#EXTINF:-1,Sky News
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/268.ts
+#EXTINF:-1,Sky Movies Select
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/269.ts
+#EXTINF:-1,Sky Movies SciFi
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/270.ts
+#EXTINF:-1,Sky Movies Premiere
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/271.ts
+#EXTINF:-1,Sky Movies Greats
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/272.ts
+#EXTINF:-1,Sky Movies Family
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/273.ts
+#EXTINF:-1,Sky Movies Drama
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/274.ts
+#EXTINF:-1,Sky Movies Disney
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/275.ts
+#EXTINF:-1,Sky Movies Crime
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/276.ts
+#EXTINF:-1,Sky Movies Comedy
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/277.ts
+#EXTINF:-1,Sky Movies Action & Adventure
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/278.ts
+#EXTINF:-1,Showcase
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/282.ts
+#EXTINF:-1,True Movies 2
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/242.ts
+#EXTINF:-1,True Movies 1
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/243.ts
+#EXTINF:-1,Setanta Sports 1
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/283.ts
+#EXTINF:-1,Setanta Ireland
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/284.ts
+#EXTINF:-1,RTE 2
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/285.ts
+#EXTINF:-1,RTE 1
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/286.ts
+#EXTINF:-1,Really
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/287.ts
+#EXTINF:-1,Racing UK
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/288.ts
+#EXTINF:-1,Quest
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/289.ts
+#EXTINF:-1,Pick TV
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/290.ts
+#EXTINF:-1,NickToons
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/291.ts
+#EXTINF:-1,Nickelodeon
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/292.ts
+#EXTINF:-1,Nick Jr
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/293.ts
+#EXTINF:-1,Nat Geo Wild
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/294.ts
+#EXTINF:-1,Nat Geo
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/295.ts
+#EXTINF:-1,MUTV
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/296.ts
+#EXTINF:-1,MTV Rocks
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/297.ts
+#EXTINF:-1,MTV Music
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/298.ts
+#EXTINF:-1,MTV Hits
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/299.ts
+#EXTINF:-1,MTV Dance
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/300.ts
+#EXTINF:-1,MTV Classic
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/301.ts
+#EXTINF:-1,MTV Base
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/302.ts
+#EXTINF:-1,MTV
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/303.ts
+#EXTINF:-1,Movies 24
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/304.ts
+#EXTINF:-1,Motors TV
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/305.ts
+#EXTINF:-1,More4
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/306.ts
+#EXTINF:-1,Magic
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/307.ts
+#EXTINF:-1,Lifetime
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/308.ts
+#EXTINF:-1,LFC TV
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/309.ts
+#EXTINF:-1,Irish TV
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/318.ts
+#EXTINF:-1,Investigation Discovery
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/319.ts
+#EXTINF:-1,Home and Health
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/320.ts
+#EXTINF:-1,Home
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/321.ts
+#EXTINF:-1,History
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/322.ts
+#EXTINF:-1,Heart TV
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/323.ts
+#EXTINF:-1,h2
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/324.ts
+#EXTINF:-1,Good Food
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/325.ts
+#EXTINF:-1,Gold
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/326.ts
+#EXTINF:-1,Fox
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/327.ts
+#EXTINF:-1,Food Network
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/328.ts
+#EXTINF:-1,Flava
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/329.ts
+#EXTINF:-1,Five
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/330.ts
+#EXTINF:-1,Film 4
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/331.ts
+#EXTINF:-1,E4
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/336.ts
+#EXTINF:-1,E!
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/337.ts
+#EXTINF:-1,Drama
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/338.ts
+#EXTINF:-1,DMAX
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/339.ts
+#EXTINF:-1,DisneyXD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/340.ts
+#EXTINF:-1,Disney JR
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/341.ts
+#EXTINF:-1,Disney
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/342.ts
+#EXTINF:-1,Discovery Science
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/343.ts
+#EXTINF:-1,Discovery History
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/344.ts
+#EXTINF:-1,Discovery
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/345.ts
+#EXTINF:-1,Dave
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/346.ts
+#EXTINF:-1,Comedy Central Extra
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/347.ts
+#EXTINF:-1,Comedy Central
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/348.ts
+#EXTINF:-1,CNN
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/349.ts
+#EXTINF:-1,CNBC
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/350.ts
+#EXTINF:-1,CI
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/351.ts
+#EXTINF:-1,Chelsea TV
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/352.ts
+#EXTINF:-1,Channel 4 HD
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/353.ts
+#EXTINF:-1,Channel 4
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/354.ts
+#EXTINF:-1,CBS Realty
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/355.ts
+#EXTINF:-1,CBS Drama
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/356.ts
+#EXTINF:-1,CBS Action
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/357.ts
+#EXTINF:-1,Cartoon Network
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/358.ts
+#EXTINF:-1,Bloomberg
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/365.ts
+#EXTINF:-1,BBC News
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/374.ts
+#EXTINF:-1,At the Races
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/375.ts
+#EXTINF:-1,AP
+plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&url=http://62.210.251.32:88/live/izu/izu/376.ts
+
+
+

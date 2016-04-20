@@ -1,5 +1,7 @@
 #EXTM3U
 
+#EXTINF:0 tvg-logo="https://raw.githubusercontent.com/cloudlist/repository.viplist/master/MyFolder/icons/allin1.png",[COLOR red][B]XXX (Adult 18+)[/B][/COLOR]
+plugin://plugin.video.live.streamspro/?url=http%3A%2F%2Ftextuploader.com%2F5wvhg%2Fraw&mode=1
 #EXTINF:0 tvg-logo="adult18.png",[COLOR magenta][B]Jasmin TV (Adult 18+)[/B][/COLOR]
 http://109.71.162.112:1935/live/sd.jasminchannel.stream/media_w852484650_6656.m3u8
 

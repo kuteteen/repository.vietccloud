@@ -1,0 +1,18 @@
+﻿#EXTM3U
+
+#EXTINF:0 tvg-logo="https://raw.githubusercontent.com/cloudlist/repository.viplist/master/MyFolder/icons/allinone.png",[COLOR red][B]All in One[/B][/COLOR][COLOR yellow][B] (textuploader)[/B][/COLOR]
+plugin://plugin.video.live.streamspro/?url=http%3A%2F%2Ftextuploader.com%2F5wui5%2Fraw&mode=1
+#EXTINF:0 tvg-logo="https://raw.githubusercontent.com/cloudlist/repository.viplist/master/MyFolder/icons/thanhth.png",Tổng Hợp (ghostbin)
+https://ghostbin.com/paste/cc49c/raw
+#EXTINF:0 tvg-logo="https://raw.githubusercontent.com/cloudlist/repository.viplist/master/MyFolder/icons/tv.png",TV & Radio (textuploader)
+http://textuploader.com/5vgvc/raw
+#EXTINF:0 tvg-logo="https://raw.githubusercontent.com/cloudlist/repository.viplist/master/MyFolder/icons/canhac.jpg",Ca Nhạc (ghostbin) 
+https://ghostbin.com/paste/haha4/raw
+#EXTINF:0 tvg-logo="https://raw.githubusercontent.com/cloudlist/repository.viplist/master/MyFolder/icons/canhac.jpg",Ca Nhạc (textuploader)
+http://textuploader.com/5nfio/raw 
+#EXTINF:0 tvg-logo="https://raw.githubusercontent.com/cloudlist/repository.viplist/master/MyFolder/icons/phim.png",Phim (ghostbin)
+https://ghostbin.com/paste/6e2ah/raw
+#EXTINF:0 tvg-logo="https://raw.githubusercontent.com/cloudlist/repository.viplist/master/MyFolder/icons/phim.png",Phim (pastebin)
+http://pastebin.com/raw/vV1Ljg9q
+
+
