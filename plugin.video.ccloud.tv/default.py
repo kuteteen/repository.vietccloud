@@ -64,7 +64,7 @@ media_regex = '<medialink>(.*?)</medialink>'
 yt = 'https://www.youtube.com/'
 text = 'http://pastebin.com/raw.php?i=Zr0Hgrbw'
 m3u = 'WVVoU01HTkViM1pNTTBKb1l6TlNiRmx0YkhWTWJVNTJZbE01ZVZsWVkzVmpSMmgzVURKck9WUlViRWxTYXpWNVZGUmpQUT09'.decode('base64')
-dic = {';':'', '&amp;':'&', '&quot;':'"', '.':' ', '&#39;':'\'', '&#038;':'&', '&#039':'\'', '&#8211;':'-', '&#8220;':'"', '&#8221;':'"', '&#8230':'...'}
+dic = {';':'', '&amp;':'&', '&quot;':'"', '.':' ', '&#39;':'\'', '&#038;':'&', '&#039':'\'', '&#8211;':'-', '&#8220;':'"', '&#8221;':'"', '&#8230':'...', 'u0026quot':'"'}
 iconpath = 'YUhSMGNITTZMeTl5WVhjdVoybDBhSFZpZFhObGNtTnZiblJsYm5RdVkyOXRMMk5zYjNWa2JHbHpkQzl5WlhCdmMybDBiM0o1TG5acGNHeHBjM1F2YldGemRHVnlMMDE1Um05c1pHVnlMM1pwWlhScFkyOXVjdz09'.decode('base64').decode('base64')
 SRVlist = 'YUhSMGNITTZMeTl5WVhjdVoybDBhSFZpZFhObGNtTnZiblJsYm5RdVkyOXRMMk5zYjNWa2JHbHpkQzl5WlhCdmMybDBiM0o1TG5acGNHeHBjM1F2YldGemRHVnlMMDE1Um05c1pHVnlMM05sY25abGNuTXVkSGgw'.decode('base64').decode('base64')
 medialink = 'YUhSMGNITTZMeTl5WVhjdVoybDBhSFZpZFhObGNtTnZiblJsYm5RdVkyOXRMMk5zYjNWa2JHbHpkQzl5WlhCdmMybDBiM0o1TG5acGNHeHBjM1F2YldGemRHVnlMMDE1Um05c1pHVnlMMjFsWkdsaGJHbHVheTUwZUhRPQ=='.decode('base64').decode('base64')
