@@ -510,7 +510,7 @@ Trân trọng./.</description>
     <requires>
         <import addon="xbmc.python" version="2.1.0"/>
         <import addon="script.module.simplejson" version="3.3.0"/>
-        <import addon="script.module.elementtree" />
+        <import addon="script.module.elementtree"  optional="true"/>
         <import addon="script.module.beautifulsoup" />
         <import addon="script.module.metahandler" version="2.5.1" />
         <import addon="script.module.addon.common" version="2.0.0" />
@@ -1166,14 +1166,14 @@ Rất mong các bạn tuân thủ và tạo động lực cho chúng tôi trong 
 
 <addon id="plugin.video.ZemTV-shani"
        name="ZemTV.com"
-       version="4.7.6"
+       version="4.7.7"
        provider-name="shani">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
 	<import addon="script.module.urlresolver" version="1.0.0"/>
 	<import addon="plugin.video.youtube" version="2.9.2" optional="true"/>
-    <import addon="script.module.simplejson" version="3.3.0"/>
-       	<import addon="script.module.elementtree" version="1.2.8"/>
+	<import addon="script.module.simplejson" version="3.3.0"/>
+	<import addon="script.module.elementtree" version="1.2.8" optional="true"/>
 
 
     <import addon="plugin.video.f4mTester" version="2.2.3" optional="true" />
