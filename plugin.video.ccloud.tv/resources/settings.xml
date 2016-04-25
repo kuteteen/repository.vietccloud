@@ -23,6 +23,7 @@
 	</category>
 	<category label="General">
 		<setting id="viet_mode" type="select" label="Select Vietnam Section Mode" values="group|abc order|category" default="group" />
+		<setting id="youtube_mode" type="select" label="Select YouTube Mode" values="tubelink|direct" default="tubelink" />
 		<setting id="enable_thongbao" type="bool" label="Enable Thong Bao Moi" default="true" />
 		<setting id="enable_tvguide" type="bool" label="Enable TV Guide" default="true" />
 		<setting id="enable_youtube_channels" type="bool" label="Enable Youtube Channels" default="true" />

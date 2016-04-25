@@ -166,7 +166,7 @@ Rất mong các bạn tuân thủ và tạo động lực cho chúng tôi trong 
   </extension>
 </addon>
 
-<addon id="plugin.video.ccloud.tv" name="cCloud.tv" version="1.7.4" provider-name="podgod-mod">
+<addon id="plugin.video.ccloud.tv" name="cCloud.tv" version="1.7.5" provider-name="podgod-mod">
   <requires>
     <import addon="script.renegadestv" optional="true" />
     <import addon="script.ivueguide" optional="true" />
@@ -1328,6 +1328,24 @@ Rất mong các bạn tuân thủ và tạo động lực cho chúng tôi trong 
 	<extension point="xbmc.addon.metadata">
 		<summary>Install Kodi4VN Addons</summary>
 		<description>Download and install addons from Kodi4VN's Repo: Best addons for Vietnamesse</description>
+		<platform>all</platform>
+	</extension>
+</addon>
+
+<addon id="repository.metalkettle" name="MetalKettles Addon Repository" version="1.7.1" provider-name="MetalKettle">
+	<extension point="xbmc.addon.repository" name="MetalKettles Addon Repository">
+	<dir>
+		<info compressed="false">https://offshoregit.com/tvaresolvers/tva-common-repository/raw/master/addons.xml</info>
+		<checksum>https://offshoregit.com/tvaresolvers/tva-common-repository/raw/master/addons.xml.md5</checksum>
+		<datadir zip="true">https://offshoregit.com/tvaresolvers/tva-common-repository/raw/master/zips/</datadir>
+	</dir>
+		<info compressed="false">http://offshoregit.com/metalkettle/addons.xml</info>
+		<checksum>http://offshoregit.com/metalkettle/addons.xml.md5</checksum>
+		<datadir zip="true">http://offshoregit.com/metalkettle/zips/</datadir>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary>Install my Addons</summary>
+		<description>Download and install addons from MetalKettle</description>
 		<platform>all</platform>
 	</extension>
 </addon>

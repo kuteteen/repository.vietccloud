@@ -45,6 +45,7 @@ select_a_server = mysettings.getSetting('select_a_server')
 enable_other_sources = mysettings.getSetting('enable_other_sources')
 enable_other_addons = mysettings.getSetting('enable_other_addons')
 viet_mode = mysettings.getSetting('viet_mode')
+youtube_mode = mysettings.getSetting('youtube_mode')
 
 local_thongbaomoi = xbmc.translatePath(os.path.join(home, 'thongbaomoi.txt'))
 local_vietradio = xbmc.translatePath(os.path.join(home, 'vietradio.m3u'))
@@ -283,18 +284,37 @@ def other_sources_list(url):
 			pass
 
 def other_addons():
-	content = make_request(otheraddons)
-	match = re.compile(m3u_regex).findall(content)
-	for thumb, name, url in match:
-		if 'tvg-logo' in thumb:
-			thumb = re.compile(m3u_thumb_regex).findall(str(thumb))[0].replace(' ', '%20')
-			if thumb.startswith('http'):
-				addDir(name, url, None, thumb, thumb)
-			else:
-				thumb = '%s/%s' % (iconpath, thumb)
-				addDir(name, url, None, thumb, thumb)
+	reposinstaller = xbmc.translatePath(os.path.join(home, 'repos.zip'))
+	if os.path.exists(reposinstaller):
+		d = xbmcgui.Dialog().yesno('Repos Installer', 'Installing necessary repositories for “Other Addons” section.', '', '[COLOR magenta]Cài đặt những repositories cần thiết cho mục “Other Addons”[/COLOR]', '', '')
+		if d:
+			import time, extract
+			dp = xbmcgui.DialogProgress()
+			dp.create("Repos Installer", "Working...", "", "")
+			addonfolder = xbmc.translatePath(os.path.join('special://', 'home'))
+			time.sleep(2)
+			dp.update(0,"", "Extracting zip files. Please wait...")
+			extract.all(reposinstaller,addonfolder,dp)
+			time.sleep(2)
+			os.remove(reposinstaller)
+			xbmcgui.Dialog().ok("Installation Completed.", "Please restart Kodi.", "", "[COLOR magenta]Vui lòng khởi động lại kodi.[/COLOR]")
+			sys.exit()
 		else:
-			addDir(name, url, None, icon, fanart)
+			sys.exit()
+	else:
+		#content = read_file(os.path.expanduser(r'~\Desktop\otheraddons.txt'))
+		content = make_request(otheraddons)
+		match = re.compile(m3u_regex).findall(content)
+		for thumb, name, url in match:
+			if 'tvg-logo' in thumb:
+				thumb = re.compile(m3u_thumb_regex).findall(str(thumb))[0].replace(' ', '%20')
+				if thumb.startswith('http'):
+					addDir(name, url, None, thumb, thumb)
+				else:
+					thumb = '%s/%s' % (iconpath, thumb)
+					addDir(name, url, None, thumb, thumb)
+			else:
+				addDir(name, url, None, icon, fanart)
 
 def removeAccents(s):
 	return ''.join((c for c in unicodedata.normalize('NFD', s.decode('utf-8')) if unicodedata.category(c) != 'Mn'))
@@ -368,13 +388,22 @@ def youtube_menu():
 	content = make_request(tubemenu)
 	match = re.compile(xml_regex+'\s*<mode>(.*?)</mode>').findall(content)
 	for name, url, thumb, mode in match:
-		addDir(name, url, mode, thumb, thumb) 
+		if youtube_mode == 'direct':
+			addDir(name, url, mode, thumb, thumb) 
+		elif youtube_mode == 'tubelink':
+			if mode == '19':
+				addDir(name, url, mode, thumb, thumb)
+			else:
+				getDir(name, url, None, thumb, thumb)
 
 def youtube_channels(url):
 	content = make_request(url)
 	match = re.compile(xml_regex).findall(content)
 	for name, url, thumb in match:
-		addDir(name, url, 20, thumb, thumb)
+		if youtube_mode == 'direct':
+			addDir(name, url, 20, thumb, thumb)
+		elif youtube_mode == 'tubelink':
+			getDir(name, url, None, thumb, thumb)
 
 def youtube_list(url):
 	addDir('[COLOR magenta][B]Playlists[/B][/COLOR]', (url + '/playlists?sort=dd&view=1'), 21, '%s/YTPlaylist.png'% iconpath, fanart)
@@ -1471,6 +1500,17 @@ def get_params():
 			if (len(splitparams)) == 2:
 				param[splitparams[0]] = splitparams[1]
 	return param
+
+def getDir(name, url, mode, iconimage, fanart):
+	u = sys.argv[0] + "?url=" + urllib.quote_plus(url) + "&mode=" + str(mode) + "&name=" + urllib.quote_plus(name) + "&iconimage=" + urllib.quote_plus(iconimage)
+	ok = True
+	liz = xbmcgui.ListItem(name, iconImage = "DefaultFolder.png", thumbnailImage = iconimage)
+	liz.setInfo( type = "Video", infoLabels = { "Title": name } )
+	liz.setProperty('fanart_image', fanart)
+	if ('www.youtube.com/user/' in url) or ('www.youtube.com/channel/' in url):
+		u = 'plugin://plugin.video.youtube/%s/%s/' % (url.split( '/' )[-2], url.split( '/' )[-1])
+	ok = xbmcplugin.addDirectoryItem(handle = int(sys.argv[1]), url = u, listitem = liz, isFolder = True)
+	return ok
 
 def addDir(name, url, mode, iconimage, fanart):
 	u = sys.argv[0] + "?url=" + urllib.quote_plus(url) + "&mode=" + str(mode) + "&name=" + urllib.quote_plus(name) + "&iconimage=" + urllib.quote_plus(iconimage)
