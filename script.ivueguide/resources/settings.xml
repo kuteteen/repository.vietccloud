@@ -2,9 +2,9 @@
 <settings>
 
 	<category label="30130">
-		<setting id="username" type="text" label="30131" default="" />
-		<setting id="password" type="text" label="30132" option="hidden" default="" />
-		<setting id="userid" type="text" label="Ivue UserID" option="hidden" default="" />
+		<setting id="username" type="text" label="30131" default="ivuetemp" />
+		<setting id="password" type="text" label="30132" option="hidden" default="ivuetemp" />
+		<setting id="userid" type="text" label="Ivue UserID" option="hidden" default="ivuetemp" />
 	</category>
 
 	<category label="30101">
