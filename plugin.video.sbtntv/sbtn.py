@@ -1,8 +1,11 @@
 # -*- coding: utf-8 -*-
-import urllib,urllib2,re,xbmc,xbmcplugin,xbmcgui
+import urllib,urllib2,re,xbmc,xbmcplugin,xbmcgui,xbmcaddon
+myaddonsettings = xbmcaddon.Addon(id = 'plugin.video.sbtntv')
 addonpath=xbmc.translatePath("special://home/addons/plugin.video.sbtntv")
 sbtn_live_tv='https://raw.githubusercontent.com/bac-ha/repository.bacha/master/playlist/sbtnlivetv.m3u'
-dic = {';':'', '&amp;':'&', '&quot;':'"', '.':' ', '&#39;':'\'', '&#038;':'&', '&#039':'\'', '&#8211;':'-', '&#8220;':'"', '&#8221;':'"', '&#8230':'...'}
+sbtn_youtube='https://raw.githubusercontent.com/bac-ha/repository.bacha/master/playlist/sbtn.xml'
+youtube_mode = myaddonsettings.getSetting('youtube_mode')
+dic = {';':'', '&amp;':'&', '&quot;':'"', '.':' ', '&#39;':'\'', '&#038;':'&', '&#039':'\'', '&#8211;':'-', '&#8220;':'"', '&#8221;':'"', '&#8230':'...', 'u0026quot':'"'}
 def replace_all(text,dic):
  try:
   for a,b in dic.iteritems():
@@ -35,13 +38,16 @@ def mainMenu():
  addDir( "Giải Trí - Đời Sống","http://www.sbtn.tv/vi/chương-trình-sbtn/giải-trí-đời-sống.html",1,'%s/icon.png' % addonpath)  
  addDir("Phóng Sự","http://www.sbtn.tv/vi/phóng-sự.html",2,'%s/icon.png' % addonpath)
  addDir( "SBTN Special","http://www.sbtn.tv/vi/sbtn-special.html",2,'%s/icon.png' % addonpath)
- f=open('%s/sbtn.xml' % addonpath, "r")
- link=f.read()
- f.close()
+ #f=open('%s/sbtn.xml' % addonpath, "r")
+ #link=f.read()
+ #f.close()
+ link=makeRequest(sbtn_youtube)
  match=re.compile('<title>(.*?)</title>\s*<link>(.*?)</link>\s*<thumbnail>(.*?)</thumbnail>').findall(link)
  for name,url,thumb in match:
-  addDir(name,url,4,'%s/youtube.png' % addonpath)
-  #addDir(name,url,None,'%s/youtube.png' % addonpath)
+  if youtube_mode == "tubelink" or youtube_mode == "0":             # type="select" or type="enum"
+   getDir(name,url,None,'%s/youtube.png' % addonpath)
+  elif youtube_mode == "direct" or youtube_mode == "1":
+   addDir(name,url,4,'%s/youtube.png' % addonpath)
 def sbtn_video_list(url):
  addDir('[COLOR magenta][B]Playlists[/B][/COLOR]',url+'/playlists?sort=dd&view=1',5,'%s/playlist.png' % addonpath)
  link=makeRequest(url+'/videos')
@@ -119,10 +125,17 @@ def addDir(name,url,mode,iconimage):
  ok=True
  liz=xbmcgui.ListItem(name, iconImage="DefaultFolder.png", thumbnailImage=iconimage)
  liz.setInfo( type="Video", infoLabels={ "Title": name } )
- #if ('www.youtube.com/user/' in url) or ('www.youtube.com/channel/' in url):
-  #u = 'plugin://plugin.video.youtube/%s/%s/' % (url.split( '/' )[-2], url.split( '/' )[-1])
  ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=u,listitem=liz,isFolder=True)
- return ok  
+ return ok
+def getDir(name,url,mode,iconimage):
+ u=sys.argv[0]+"?url="+urllib.quote_plus(url)+"&mode="+str(mode)+"&name="+urllib.quote_plus(name)
+ ok=True
+ liz=xbmcgui.ListItem(name, iconImage="DefaultFolder.png", thumbnailImage=iconimage)
+ liz.setInfo( type="Video", infoLabels={ "Title": name } )
+ if ('www.youtube.com/user/' in url) or ('www.youtube.com/channel/' in url):
+  u = 'plugin://plugin.video.youtube/%s/%s/' % (url.split( '/' )[-2], url.split( '/' )[-1])
+ ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=u,listitem=liz,isFolder=True)
+ return ok
 def categories(url):
  link=makeRequest(url)
  if "tin-tức-bình-luận" in url:
