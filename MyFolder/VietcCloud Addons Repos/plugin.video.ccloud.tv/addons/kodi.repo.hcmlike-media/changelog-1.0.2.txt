@@ -1,8 +1,0 @@
-1.0.0 <03/06/2015>
-- Initial version
-
-1.0.1 <08/06/2015>
-- Fix auto update add-ons.
-
-1.0.2 <22/11/2015>
-- Fix desciption for add-ons.
