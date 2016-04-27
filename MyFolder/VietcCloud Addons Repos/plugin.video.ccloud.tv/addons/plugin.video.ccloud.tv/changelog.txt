@@ -1,0 +1,91 @@
+[B]1.7.5[/B]
+- Added repos.zip
+- Added YouTube Mode selection.
+[B]1.7.4[/B]
+- Updated addDir module for calling script add-ons such as Navi-X and Backup.
+[B]1.7.3[/B]
+- Replaced VietMedia with YouTube Channels.
+[B]1.7.2[/B]
+- Reduced addon size.
+[B]1.7.1[/B]
+- Reorganized Adult section.
+[B]1.7.0[/B]
+- Added another source to Adult section.
+[B]1.6.9[/B]
+- Added Other Sources section.
+- Added Adult Addons section.
+[B]1.6.8[/B]
+- Fixed VietMedia - YouTube
+[B]1.6.7[/B]
+- Added Miami TV (18+)
+- <import addon="script.renegadestv" optional="true" />
+- <import addon="script.ivueguide" optional="true" />
+[B]1.6.6[/B]
+- Fix mistakes
+[B]1.6.5[/B]
+- Added Other Addons section.
+[B]1.6.4[/B]
+- 2 server groups.
+- No URL shortener.
+- Deleted all sample files.
+[B]1.6.3[/B]
+- Encoded source lists.
+- URL shortener.
+[B]1.6.2[/B]
+- More changes.
+[B]1.6.1[/B]
+- Added manual server selection.
+[B]1.6.0[/B]
+- Added option to use cCloudTV playlist from IPTV Simple Client.
+[B]1.5.9[/B]
+- Added server notification
+- Minor changes in settings.xml
+[B]1.5.8[/B]
+- Updated servers again
+[B]1.5.7[/B]
+- Changed Backup Server
+[B]1.5.6[/B]
+- Minor changes
+- Updated Tutorials
+[B]1.5.5[/B]
+- Cleanup (settings.xml)
+- Minor fixes
+[B]1.5.4[/B]
+- Fixed VietMedia - YouTube section to show next page.
+- Rearranged home menu.
+[B]1.5.3[/B]
+- Updated servers.
+[B]1.5.2[/B]
+- Added Backup List.
+[B]1.5.1[/B]
+- Added iVue TV Guide
+[B]1.5.0[/B]
+- Added TV Hai Ngoai
+- Updated VietMedia
+- Removed all import addons in addon.xml
+[B]1.4.9[/B]
+- Added Links to Tutorials for Vietnamese newbies to Kodi
+- Speed up VietMedia 24/7 section
+- Moved playlist and thongbaomoi to online location
+[B]1.4.8[/B]
+- Added autostart cCloud.tv
+- Changed Kodi Viet to VietMedia
+- No longer use playlists on Github
+[B]1.4.7[/B]
+- Added Vietnam Radio Stations
+[B]1.4.6[/B]
+- Rearranged home menu.
+- Added enable/disable options in settings for Thong Bao Moi and Kodi Viet sections.
+[B]1.4.5[/B]
+- Added Kodi Viet - M3U Playlist section
+- Added Thong Bao Moi
+[B]1.4.4[/B]
+- Added Kodi Viet - Youtube section
+- Added Group and Kodi Viet's Tutorials to Vietnam section
+- Changed add-on's icon image
+[B]1.4.3[/B]
+Updated Vietnam section
+- abc order
+- category
+[B]1.4.2[/B]
+- Initial mod

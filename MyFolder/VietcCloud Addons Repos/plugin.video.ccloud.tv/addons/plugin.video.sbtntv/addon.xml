@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="plugin.video.sbtntv"
+       name="SBTN TV"
+       version="1.0.2"
+       provider-name="bacha">
+  <requires>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="sbtn.py">
+        <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary>SBTN TV</summary>
+    <description>Watch SBTN TV</description>
+    <platform>all</platform>
+  </extension>
+</addon>

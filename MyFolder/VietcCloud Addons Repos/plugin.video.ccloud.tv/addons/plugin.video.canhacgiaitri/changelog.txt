@@ -1,0 +1,33 @@
+Version 1.2.3
+11/19/2013 -new update - add
+
+Version 1.2.3
+11/19/2013 -fix bug
+Version 1.2.2
+11/19/2013 -Update Languages
+
+Version 1.2.1
+11/19/2013 -Update TV
+
+Version 1.1.9
+11/19/2013 -Update Poster Film
+
+Version 1.1.8
+11/19/2013 -Update Key
+
+Version 1.1.7
+11/10/2013 -Update MAC
+
+Version 1.1.5
+10/25/2013 -Update categories
+
+Version 1.1.4
+10/25/2013 -Update categories
+
+Version 1.1.2
+10/24/2013 -test and fix auto update
+
+Version 1.1.1
+10/24/2013 -test and fix auto update
+
+
