@@ -225,7 +225,7 @@ def main():
 	if enable_online_tester == 'true':
 		addDir('[COLOR lime][B]Online M3U Playlist Tester[/B][/COLOR]', 'onlinetester', 42, '%s/onlinetester.png'% iconpath, fanart)
 	if enable_youtube_channels == 'true':
-		addDir('[COLOR orange][B]YouTube Channels[/B][/COLOR]', 'NoLinkRequired', 18, '%s/youtubechannels.png'% iconpath, fanart)
+		addDir('[COLOR orange][B]YouTube Channels[/B][/COLOR]', tubemenu, 18, '%s/youtubechannels.png'% iconpath, fanart)
 	if enable_other_sources == 'true':
 		addDir('[COLOR orangered][B]Other Sources[/B][/COLOR]', 'NoLinkRequired', 110, '%s/othersources.png'% iconpath, fanart)
 	if enable_other_addons == 'true':
@@ -234,7 +234,7 @@ def main():
 		if enable_public_uploads == 'true':
 			addDir('[COLOR brown][B]Public Uploads[/B][/COLOR]', public_uploads, None, '%s/ChromeLauncher.png'% iconpath, fanart)
 		if enable_links_to_tutorials == 'true':
-			addDir('[COLOR green][B]Links to Tutorials[/B][/COLOR]', 'TutorialLinks', 27, '%s/tutlinks.png'% iconpath, fanart)
+			addDir('[COLOR green][B]Links to Tutorials[/B][/COLOR]', media_link()[1], 27, '%s/tutlinks.png'% iconpath, fanart)
 	if viet_mode == 'group':
 		addDir('[COLOR royalblue][B]Vietnam[/B][/COLOR]', 'vietnam_group', 30, '%s/vietnam.png'% iconpath, fanart)
 	if viet_mode == 'abc order':
@@ -334,30 +334,38 @@ def search():
 	except:
 		pass
 
-def tutorial_links():
-	content = make_request(media_link()[1])
-	match = re.compile(m3u_regex).findall(content)
-	for thumb, name, url in match:
-		if 'plugin.program.chrome.launcher' in url:
-			if 'tvg-logo' in thumb:
-				thumb = re.compile(m3u_thumb_regex).findall(str(thumb))[0].replace(' ', '%20')
-				if thumb.startswith('http'):
-					addDir(name, url, None, thumb, thumb)
+def tutorial_links(url):
+	content = make_request(url)
+	if url.endswith('m3u'):
+		match = re.compile(m3u_regex).findall(content)
+		for thumb, name, url in match:
+			if 'plugin.program.chrome.launcher' in url:
+				if 'tvg-logo' in thumb:
+					thumb = re.compile(m3u_thumb_regex).findall(str(thumb))[0].replace(' ', '%20')
+					if thumb.startswith('http'):
+						addDir(name, url, None, thumb, thumb)
+					else:
+						thumb = '%s/%s' % (iconpath, thumb)
+						addDir(name, url, None, thumb, thumb)
 				else:
-					thumb = '%s/%s' % (iconpath, thumb)
-					addDir(name, url, None, thumb, thumb)
+					addDir(name, url, None, icon, fanart)
 			else:
-				addDir(name, url, None, icon, fanart)
-		else:
-			if 'tvg-logo' in thumb:
-				thumb = re.compile(m3u_thumb_regex).findall(str(thumb))[0].replace(' ', '%20')
-				if thumb.startswith('http'):
-					addLink(name, url, 1, thumb, thumb)
+				if 'tvg-logo' in thumb:
+					thumb = re.compile(m3u_thumb_regex).findall(str(thumb))[0].replace(' ', '%20')
+					if thumb.startswith('http'):
+						addLink(name, url, 1, thumb, thumb)
+					else:
+						thumb = '%s/%s' % (iconpath, thumb)
+						addLink(name, url, 1, thumb, thumb)
 				else:
-					thumb = '%s/%s' % (iconpath, thumb)
-					addLink(name, url, 1, thumb, thumb)
+					addLink(name, url, 1, icon, fanart)
+	elif url.endswith('xml'):
+		match = re.compile(xml_regex).findall(content)
+		for name, url, thumb in match:
+			if 'plugin.program.chrome.launcher' in url:
+				addDir(name, url, None, thumb, thumb)
 			else:
-				addLink(name, url, 1, icon, fanart)
+				addLink(name, url, 1, thumb, thumb)
 
 def search_youtube(): 
 	try:
@@ -383,18 +391,19 @@ def youtube_search(url):
 		url = 'https://www.youtube.com/results?search_query=' + url
 		addDir('[COLOR cyan]' + name + '[/COLOR]', url, 26, ytsearchicon, ytsearchicon)
 
-def youtube_menu():
-	addDir('[COLOR yellow][B]YouTube - Search[/B][/COLOR]', 'ytsearch', 25, ytsearchicon, ytsearchicon)
-	content = make_request(tubemenu)
+def youtube_menu(url):
+	if url == tubemenu:
+		addDir('[COLOR yellow][B]YouTube - Search[/B][/COLOR]', 'ytsearch', 25, ytsearchicon, ytsearchicon)
+	content = make_request(url)
 	match = re.compile(xml_regex+'\s*<mode>(.*?)</mode>').findall(content)
 	for name, url, thumb, mode in match:
 		if youtube_mode == 'direct':
 			addDir(name, url, mode, thumb, thumb) 
 		elif youtube_mode == 'tubelink':
-			if mode == '19':
-				addDir(name, url, mode, thumb, thumb)
-			else:
+			if mode == '20':
 				getDir(name, url, None, thumb, thumb)
+			else:
+				addDir(name, url, mode, thumb, thumb)
 
 def youtube_channels(url):
 	content = make_request(url)
@@ -1040,18 +1049,36 @@ def adult():
 		pass
 
 def adult_addons():
-	content = make_request(adultaddons)
-	match = re.compile(m3u_regex).findall(content)
-	for thumb, name, url in match:
-		if 'tvg-logo' in thumb:
-			thumb = re.compile(m3u_thumb_regex).findall(str(thumb))[0].replace(' ', '%20')
-			if thumb.startswith('http'):
-				addDir(name, url, None, thumb, thumb)
-			else:
-				thumb = '%s/%s' % (iconpath, thumb)
-				addDir(name, url, None, thumb, thumb)
+	adultreposinstaller = xbmc.translatePath(os.path.join(home, 'adult_repos.zip'))
+	if os.path.exists(adultreposinstaller):
+		d = xbmcgui.Dialog().yesno('Adult Repos Installer', 'Installing necessary repositories for “Adult Addons” section.', '', '[COLOR magenta]Cài đặt những repositories cần thiết cho mục “Adult Addons”[/COLOR]', '', '')
+		if d:
+			import time, extract
+			dp = xbmcgui.DialogProgress()
+			dp.create("Adult Repos Installer", "Working...", "", "")
+			addonfolder = xbmc.translatePath(os.path.join('special://', 'home'))
+			time.sleep(2)
+			dp.update(0,"", "Extracting zip files. Please wait...")
+			extract.all(adultreposinstaller,addonfolder,dp)
+			time.sleep(2)
+			os.remove(adultreposinstaller)
+			xbmcgui.Dialog().ok("Installation Completed.", "Please restart Kodi.", "", "[COLOR magenta]Vui lòng khởi động lại kodi.[/COLOR]")
+			sys.exit()
 		else:
-			addDir(name, url, None, icon, fanart)
+			sys.exit()
+	else:
+		content = make_request(adultaddons)
+		match = re.compile(m3u_regex).findall(content)
+		for thumb, name, url in match:
+			if 'tvg-logo' in thumb:
+				thumb = re.compile(m3u_thumb_regex).findall(str(thumb))[0].replace(' ', '%20')
+				if thumb.startswith('http'):
+					addDir(name, url, None, thumb, thumb)
+				else:
+					thumb = '%s/%s' % (iconpath, thumb)
+					addDir(name, url, None, thumb, thumb)
+			else:
+				addDir(name, url, None, icon, fanart)
 
 def english():
 	try:
@@ -1575,7 +1602,7 @@ elif mode == 4:
 	thongbao()
 
 elif mode == 18:
-	youtube_menu()
+	youtube_menu(url)
 
 elif mode == 19:
 	youtube_channels(url)
@@ -1602,7 +1629,7 @@ elif mode == 26:
 	youtube_search(url)
 
 elif mode == 27:
-	tutorial_links()
+	tutorial_links(url)
 
 elif mode == 30:
 	vietnam_group()
