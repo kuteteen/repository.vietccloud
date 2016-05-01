@@ -193,8 +193,6 @@ Rất mong các bạn tuân thủ và tạo động lực cho chúng tôi trong 
 
 <addon id="plugin.video.ccloud.tv" name="cCloud.tv" version="1.7.6" provider-name="podgod-mod">
   <requires>
-    <import addon="script.renegadestv" optional="true" />
-    <import addon="script.ivueguide" optional="true" />
   </requires>
   <extension point="xbmc.python.pluginsource" library="default.py">
     <provides>video</provides>
