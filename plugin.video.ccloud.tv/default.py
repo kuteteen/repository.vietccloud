@@ -398,12 +398,18 @@ def youtube_menu(url):
 	match = re.compile(xml_regex+'\s*<mode>(.*?)</mode>').findall(content)
 	for name, url, thumb, mode in match:
 		if youtube_mode == 'direct':
-			addDir(name, url, mode, thumb, thumb) 
+			if 'plugin://plugin.video.youtube' in url:
+				addLink(name, url, mode, thumb, thumb)
+			else:
+				addDir(name, url, mode, thumb, thumb) 
 		elif youtube_mode == 'tubelink':
 			if mode == '20':
 				getDir(name, url, None, thumb, thumb)
 			else:
-				addDir(name, url, mode, thumb, thumb)
+				if 'plugin://plugin.video.youtube' in url:
+					addLink(name, url, mode, thumb, thumb)
+				else:
+					addDir(name, url, mode, thumb, thumb) 
 
 def youtube_channels(url):
 	content = make_request(url)

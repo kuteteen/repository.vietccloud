@@ -1,6 +1,6 @@
 ﻿<START>
-[COLOR magenta][B]Đây là bản đã được sửa đổi và thêm vào một số mục để người Việt dùng tiện hơn.[/B][/COLOR]
-[COLOR chocolate][B]Cám ơn tác giả và tất cả những người đã tạo và giữ cho add-on này ngày càng phong phú và được tiếp tục tồn tại mãi.[/B][/COLOR]
+[COLOR magenta][B]Đây là bản đã được sửa đổi từ cCloud TV add-on và thêm vào một số mục để người Việt dùng tiện hơn.[/B][/COLOR]
+[COLOR chocolate][B]Cám ơn cCloud Team và tất cả những người đã tạo và giữ cho cCloud TV add-on ngày càng phong phú và được tiếp tục tồn tại mãi.[/B][/COLOR]
 
 - Muốn dùng TV Guide, cần phải gài iVue/Renegades TV Guide. Xem hướng dẫn dưới đây:
 [COLOR blue]https://www.youtube.com/watch?v=7qFoqM31j4g[/COLOR]
