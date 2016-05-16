@@ -18,7 +18,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>
 """
 
 import urllib, urllib2, sys, re, os, unicodedata, cookielib, random, shutil
-import xbmc, xbmcgui, xbmcplugin, xbmcaddon, base64
+import xbmc, xbmcgui, xbmcplugin, xbmcaddon, base64, json
 from operator import itemgetter, attrgetter
 
 plugin_handle = int(sys.argv[1])
@@ -29,7 +29,7 @@ getSetting = xbmcaddon.Addon().getSetting
 enable_adult_section = mysettings.getSetting('enable_adult_section')
 enable_tvguide = mysettings.getSetting('enable_tvguide')
 enable_thongbao = mysettings.getSetting('enable_thongbao')
-enable_vietmedia = mysettings.getSetting('enable_vietmedia')
+enable_youtube_channels = mysettings.getSetting('enable_youtube_channels')
 enable_channel_tester = mysettings.getSetting('enable_channel_tester')
 enable_local_tester = mysettings.getSetting('enable_local_tester')
 server_notification = mysettings.getSetting('enable_server_notification')
@@ -42,13 +42,15 @@ enable_iptvsimple_playlist = mysettings.getSetting('enable_iptvsimple_playlist')
 choose_server_group = mysettings.getSetting('choose_server_group')
 enable_server_selection = mysettings.getSetting('enable_server_selection')
 select_a_server = mysettings.getSetting('select_a_server')
+enable_other_sources = mysettings.getSetting('enable_other_sources')
 enable_other_addons = mysettings.getSetting('enable_other_addons')
 viet_mode = mysettings.getSetting('viet_mode')
+youtube_mode = mysettings.getSetting('youtube_mode')
 
 local_thongbaomoi = xbmc.translatePath(os.path.join(home, 'thongbaomoi.txt'))
 local_vietradio = xbmc.translatePath(os.path.join(home, 'vietradio.m3u'))
 fanart = xbmc.translatePath(os.path.join(home, 'fanart.jpg'))
-iconpath = xbmc.translatePath(os.path.join(home, 'resources/icons'))
+#iconpath = xbmc.translatePath(os.path.join(home, 'resources/icons'))
 icon = xbmc.translatePath(os.path.join(home, 'icon.png'))
 
 xml_regex = '<title>(.*?)</title>\s*<link>(.*?)</link>\s*<thumbnail>(.*?)</thumbnail>'
@@ -63,12 +65,17 @@ media_regex = '<medialink>(.*?)</medialink>'
 yt = 'https://www.youtube.com/'
 text = 'http://pastebin.com/raw.php?i=Zr0Hgrbw'
 m3u = 'WVVoU01HTkViM1pNTTBKb1l6TlNiRmx0YkhWTWJVNTJZbE01ZVZsWVkzVmpSMmgzVURKck9WUlViRWxTYXpWNVZGUmpQUT09'.decode('base64')
-dic = {';':'', '&amp;':'&', '&quot;':'"', '.':' ', '&#39;':'\'', '&#038;':'&', '&#039':'\'', '&#8211;':'-', '&#8220;':'"', '&#8221;':'"', '&#8230':'...'}
+dic = {';':'', '&amp;':'&', '&quot;':'"', '.':' ', '&#39;':'\'', '&#038;':'&', '&#039':'\'', '&#8211;':'-', '&#8220;':'"', '&#8221;':'"', '&#8230':'...', 'u0026quot':'"'}
+iconpath = 'YUhSMGNITTZMeTl5WVhjdVoybDBhSFZpZFhObGNtTnZiblJsYm5RdVkyOXRMMk5zYjNWa2JHbHpkQzl5WlhCdmMybDBiM0o1TG5acGNHeHBjM1F2YldGemRHVnlMMDE1Um05c1pHVnlMM1pwWlhScFkyOXVjdz09'.decode('base64').decode('base64')
 SRVlist = 'YUhSMGNITTZMeTl5WVhjdVoybDBhSFZpZFhObGNtTnZiblJsYm5RdVkyOXRMMk5zYjNWa2JHbHpkQzl5WlhCdmMybDBiM0o1TG5acGNHeHBjM1F2YldGemRHVnlMMDE1Um05c1pHVnlMM05sY25abGNuTXVkSGgw'.decode('base64').decode('base64')
 medialink = 'YUhSMGNITTZMeTl5WVhjdVoybDBhSFZpZFhObGNtTnZiblJsYm5RdVkyOXRMMk5zYjNWa2JHbHpkQzl5WlhCdmMybDBiM0o1TG5acGNHeHBjM1F2YldGemRHVnlMMDE1Um05c1pHVnlMMjFsWkdsaGJHbHVheTUwZUhRPQ=='.decode('base64').decode('base64')
+tubemenu = 'YUhSMGNITTZMeTl5WVhjdVoybDBhSFZpZFhObGNtTnZiblJsYm5RdVkyOXRMMk5zYjNWa2JHbHpkQzl5WlhCdmMybDBiM0o1TG5acGNHeHBjM1F2YldGemRHVnlMMDE1Um05c1pHVnlMM2x2ZFhSMVltVXZjR3hoZVd4cGMzUnpMM1IxWW1WdFpXNTFMbmh0YkE9PQ=='.decode('base64').decode('base64')
+ytsearchicon = 'YUhSMGNITTZMeTl5WVhjdVoybDBhSFZpZFhObGNtTnZiblJsYm5RdVkyOXRMMk5zYjNWa2JHbHpkQzl5WlhCdmMybDBiM0o1TG5acGNHeHBjM1F2YldGemRHVnlMMDE1Um05c1pHVnlMM2x2ZFhSMVltVXZhV052Ym5NdldWUlRaV0Z5WTJndWNHNW4='.decode('base64').decode('base64')
 iptvsimple = xbmc.translatePath("special://home/userdata/addon_data/pvr.iptvsimple/iptv.m3u.cache")
 public_uploads = 'plugin://plugin.program.chrome.launcher/?kiosk=no&mode=showSite&stopPlayback=no&url=https%3a%2f%2fscript.google.com%2fmacros%2fs%2fAKfycbxwkVU0o3lckrB5oCQBnQlZ-n8CMx5CZ_ajq6Y3o7YHSTFbcODk%2fexec'
 otheraddons = 'YUhSMGNITTZMeTl5WVhjdVoybDBhSFZpZFhObGNtTnZiblJsYm5RdVkyOXRMMk5zYjNWa2JHbHpkQzl5WlhCdmMybDBiM0o1TG5acGNHeHBjM1F2YldGemRHVnlMMDE1Um05c1pHVnlMMjkwYUdWeVlXUmtiMjV6TG5SNGRBPT0='.decode('base64').decode('base64')
+othersources = 'YUhSMGNITTZMeTl5WVhjdVoybDBhSFZpZFhObGNtTnZiblJsYm5RdVkyOXRMMk5zYjNWa2JHbHpkQzl5WlhCdmMybDBiM0o1TG5acGNHeHBjM1F2YldGemRHVnlMMDE1Um05c1pHVnlMMjkwYUdWeWMyOTFjbU5sY3k1MGVIUT0='.decode('base64').decode('base64')
+adultaddons = 'YUhSMGNITTZMeTl5WVhjdVoybDBhSFZpZFhObGNtTnZiblJsYm5RdVkyOXRMMk5zYjNWa2JHbHpkQzl5WlhCdmMybDBiM0o1TG5acGNHeHBjM1F2YldGemRHVnlMMDE1Um05c1pHVnlMMkZrZFd4MFlXUmtiMjV6TG5SNGRBPT0='.decode('base64').decode('base64')
 List1 = 'YUhSMGNEb3ZMMnR2WkdrdVkyTnNaQzVwYnc9PQ=='.decode('base64').decode('base64')
 List2 = 'YUhSMGNEb3ZMM2d1WTI4dlpHSmphREF4'.decode('base64').decode('base64')
 List3 = 'YUhSMGNEb3ZMMkZwYnk1alkyeHZkV1IwZGk1dmNtY3ZhMjlrYVE9PQ=='.decode('base64').decode('base64')
@@ -217,15 +224,17 @@ def main():
 		addDir('[COLOR lime][B]Local M3U Playlist Tester[/B][/COLOR]', 'localtester', 41, '%s/localtester.png'% iconpath, fanart)
 	if enable_online_tester == 'true':
 		addDir('[COLOR lime][B]Online M3U Playlist Tester[/B][/COLOR]', 'onlinetester', 42, '%s/onlinetester.png'% iconpath, fanart)
-	if enable_vietmedia == 'true':
-		addDir('[COLOR orange][B]VietMedia - YouTube[/B][/COLOR]', 'NoLinkRequired', 20, '%s/vietmedia.png'% iconpath, fanart)
+	if enable_youtube_channels == 'true':
+		addDir('[COLOR orange][B]YouTube Channels[/B][/COLOR]', tubemenu, 18, '%s/youtubechannels.png'% iconpath, fanart)
+	if enable_other_sources == 'true':
+		addDir('[COLOR orangered][B]Other Sources[/B][/COLOR]', 'NoLinkRequired', 110, '%s/othersources.png'% iconpath, fanart)
 	if enable_other_addons == 'true':
 		addDir('[COLOR cyan][B]Other Addons[/B][/COLOR]', 'NoLinkRequired', 100, '%s/otheraddons.png'% iconpath, fanart)
 	if platform() == 'windows' or platform() == 'osx':
 		if enable_public_uploads == 'true':
 			addDir('[COLOR brown][B]Public Uploads[/B][/COLOR]', public_uploads, None, '%s/ChromeLauncher.png'% iconpath, fanart)
 		if enable_links_to_tutorials == 'true':
-			addDir('[COLOR green][B]Links to Tutorials[/B][/COLOR]', 'TutorialLinks', 27, '%s/tutlinks.png'% iconpath, fanart)
+			addDir('[COLOR green][B]Links to Tutorials[/B][/COLOR]', media_link()[1], 27, '%s/tutlinks.png'% iconpath, fanart)
 	if viet_mode == 'group':
 		addDir('[COLOR royalblue][B]Vietnam[/B][/COLOR]', 'vietnam_group', 30, '%s/vietnam.png'% iconpath, fanart)
 	if viet_mode == 'abc order':
@@ -250,19 +259,62 @@ def main():
 	if getSetting("enable_adult_section") == 'true':
 		addDir('[COLOR magenta][B]Adult(18+)[/B][/COLOR]', 'adult', 98, '%s/adult.png'% iconpath, fanart)
 
-def other_addons():
-	content = make_request(otheraddons)
+def other_sources():
+	#content = read_file(os.path.expanduser(r'~\Desktop\othersources.txt'))
+	content = make_request(othersources)
 	match = re.compile(m3u_regex).findall(content)
 	for thumb, name, url in match:
 		if 'tvg-logo' in thumb:
 			thumb = re.compile(m3u_thumb_regex).findall(str(thumb))[0].replace(' ', '%20')
 			if thumb.startswith('http'):
-				addDir(name, url, None, thumb, thumb)
+				addDir(name, url, 111, thumb, thumb)
 			else:
 				thumb = '%s/%s' % (iconpath, thumb)
-				addDir(name, url, None, thumb, thumb)
+				addDir(name, url, 111, thumb, thumb)
 		else:
-			addDir(name, url, None, icon, fanart)
+			addDir(name, url, 111, icon, fanart)
+
+def other_sources_list(url):
+	content = make_request(url)
+	match = re.compile(m3u_regex).findall(content)
+	for thumb, name, url in match:
+		try:
+			m3u_playlist(name, url, thumb)
+		except:
+			pass
+
+def other_addons():
+	reposinstaller = xbmc.translatePath(os.path.join(home, 'repos.zip'))
+	if os.path.exists(reposinstaller):
+		d = xbmcgui.Dialog().yesno('Repos Installer', 'Installing necessary repositories for “Other Addons” section.', '', '[COLOR magenta]Cài đặt những repositories cần thiết cho mục “Other Addons”[/COLOR]', '', '')
+		if d:
+			import time, extract
+			dp = xbmcgui.DialogProgress()
+			dp.create("Repos Installer", "Working...", "", "")
+			addonfolder = xbmc.translatePath(os.path.join('special://', 'home'))
+			time.sleep(2)
+			dp.update(0,"", "Extracting zip files. Please wait...")
+			extract.all(reposinstaller,addonfolder,dp)
+			time.sleep(2)
+			os.remove(reposinstaller)
+			xbmcgui.Dialog().ok("Installation Completed.", "Please restart Kodi.", "", "[COLOR magenta]Vui lòng khởi động lại kodi.[/COLOR]")
+			sys.exit()
+		else:
+			sys.exit()
+	else:
+		#content = read_file(os.path.expanduser(r'~\Desktop\otheraddons.txt'))
+		content = make_request(otheraddons)
+		match = re.compile(m3u_regex).findall(content)
+		for thumb, name, url in match:
+			if 'tvg-logo' in thumb:
+				thumb = re.compile(m3u_thumb_regex).findall(str(thumb))[0].replace(' ', '%20')
+				if thumb.startswith('http'):
+					addDir(name, url, None, thumb, thumb)
+				else:
+					thumb = '%s/%s' % (iconpath, thumb)
+					addDir(name, url, None, thumb, thumb)
+			else:
+				addDir(name, url, None, icon, fanart)
 
 def removeAccents(s):
 	return ''.join((c for c in unicodedata.normalize('NFD', s.decode('utf-8')) if unicodedata.category(c) != 'Mn'))
@@ -282,56 +334,120 @@ def search():
 	except:
 		pass
 
-def tutorial_links():
-	content = make_request(media_link()[1])
-	match = re.compile(m3u_regex).findall(content)
-	for thumb, name, url in match:
-		if 'plugin.program.chrome.launcher' in url:
-			if 'tvg-logo' in thumb:
-				thumb = re.compile(m3u_thumb_regex).findall(str(thumb))[0].replace(' ', '%20')
-				if thumb.startswith('http'):
-					addDir(name, url, None, thumb, thumb)
+def tutorial_links(url):
+	content = make_request(url)
+	if url.endswith('m3u'):
+		match = re.compile(m3u_regex).findall(content)
+		for thumb, name, url in match:
+			if 'plugin.program.chrome.launcher' in url:
+				if 'tvg-logo' in thumb:
+					thumb = re.compile(m3u_thumb_regex).findall(str(thumb))[0].replace(' ', '%20')
+					if thumb.startswith('http'):
+						addDir(name, url, None, thumb, thumb)
+					else:
+						thumb = '%s/%s' % (iconpath, thumb)
+						addDir(name, url, None, thumb, thumb)
 				else:
-					thumb = '%s/%s' % (iconpath, thumb)
-					addDir(name, url, None, thumb, thumb)
+					addDir(name, url, None, icon, fanart)
 			else:
-				addDir(name, url, None, icon, fanart)
-		else:
-			if 'tvg-logo' in thumb:
-				thumb = re.compile(m3u_thumb_regex).findall(str(thumb))[0].replace(' ', '%20')
-				if thumb.startswith('http'):
-					addLink(name, url, 1, thumb, thumb)
+				if 'tvg-logo' in thumb:
+					thumb = re.compile(m3u_thumb_regex).findall(str(thumb))[0].replace(' ', '%20')
+					if thumb.startswith('http'):
+						addLink(name, url, 1, thumb, thumb)
+					else:
+						thumb = '%s/%s' % (iconpath, thumb)
+						addLink(name, url, 1, thumb, thumb)
 				else:
-					thumb = '%s/%s' % (iconpath, thumb)
-					addLink(name, url, 1, thumb, thumb)
+					addLink(name, url, 1, icon, fanart)
+	elif url.endswith('xml'):
+		match = re.compile(xml_regex).findall(content)
+		for name, url, thumb in match:
+			if 'plugin.program.chrome.launcher' in url:
+				addDir(name, url, None, thumb, thumb)
 			else:
-				addLink(name, url, 1, icon, fanart)
+				addLink(name, url, 1, thumb, thumb)
 
-def vietmedia_list():
-	addDir('[COLOR magenta][B]Playlists[/B][/COLOR]', (yt + 'channel/UCcuszmClmU_j7vc9NbYA6Tw/playlists'), 21, '%s/YTPlaylist.png'% iconpath, fanart)
-	link = make_request(yt + 'channel/UCcuszmClmU_j7vc9NbYA6Tw/videos')
+def search_youtube(): 
+	try:
+		keyb = xbmc.Keyboard('', 'Enter Channel Name')
+		keyb.doModal()
+		if (keyb.isConfirmed()):
+			searchText = urllib.quote_plus(keyb.getText()) 
+		url = 'https://www.youtube.com/results?search_query=' + searchText
+		youtube_search(url)
+	except:
+		pass
+
+def youtube_search(url):
+	content = make_request(url)
+	match = re.compile('href="/watch\?v=(.+?)" class=".+?" data-sessionlink=".+?" title="(.+?)".+?Duration: (.+?).</span>').findall(content)
+	for url, name, duration in match:
+		name = replace_all(name, dic)
+		thumb = 'https://i.ytimg.com/vi/' + url + '/mqdefault.jpg'
+		url = 'plugin://plugin.video.youtube/play/?video_id=' + url
+		addLink(name + ' (' + duration + ')', url, 1, thumb, fanart)
+	match = re.compile('href="/results\?search_query=(.+?)".+?aria-label="Go to (.+?)"').findall(content)
+	for url, name in match:
+		url = 'https://www.youtube.com/results?search_query=' + url
+		addDir('[COLOR cyan]' + name + '[/COLOR]', url, 26, ytsearchicon, ytsearchicon)
+
+def youtube_menu(url):
+	if url == tubemenu:
+		addDir('[COLOR yellow][B]YouTube - Search[/B][/COLOR]', 'ytsearch', 25, ytsearchicon, ytsearchicon)
+	content = make_request(url)
+	match = re.compile(xml_regex+'\s*<mode>(.*?)</mode>').findall(content)
+	for name, url, thumb, mode in match:
+		if youtube_mode == 'direct':
+			if 'plugin://plugin.video.youtube' in url:
+				addLink(name, url, mode, thumb, thumb)
+			else:
+				addDir(name, url, mode, thumb, thumb) 
+		elif youtube_mode == 'tubelink':
+			if mode == '20':
+				getDir(name, url, None, thumb, thumb)
+			else:
+				if 'plugin://plugin.video.youtube' in url:
+					addLink(name, url, mode, thumb, thumb)
+				else:
+					addDir(name, url, mode, thumb, thumb) 
+
+def youtube_channels(url):
+	content = make_request(url)
+	match = re.compile(xml_regex).findall(content)
+	for name, url, thumb in match:
+		if youtube_mode == 'direct':
+			addDir(name, url, 20, thumb, thumb)
+		elif youtube_mode == 'tubelink':
+			getDir(name, url, None, thumb, thumb)
+
+def youtube_list(url):
+	addDir('[COLOR magenta][B]Playlists[/B][/COLOR]', (url + '/playlists?sort=dd&view=1'), 21, '%s/YTPlaylist.png'% iconpath, fanart)
+	link = make_request(url + '/videos')
 	link = ''.join(link.splitlines()).replace('\t','')
 	match = re.compile('src="//i.ytimg.com/vi/(.+?)".+?aria-label.+?>(.+?)</span>.+?href="/watch\?v=(.+?)">(.+?)</a>').findall(link)
 	for thumb, duration, url, name in match:
 		name = replace_all(name, dic)
 		thumb = 'https://i.ytimg.com/vi/' + thumb
-		addLink(name + '[COLOR orange] (' + duration + ')[/COLOR]', 'plugin://plugin.video.youtube/play/?video_id=' + url, 1, thumb, thumb)
+		addLink(name, 'plugin://plugin.video.youtube/play/?video_id=' + url, 1, thumb, thumb)
 	try:
 		match = re.compile('data-uix-load-more-href="(.+?)"').findall(link)
 		addDir('[COLOR yellow][B]Next page [/B][/COLOR][COLOR lime][B]>>[/B][/COLOR]', 'https://www.youtube.com' + match[0].replace('&amp;','&'), 23, '%s/nextpage.png'% iconpath, fanart)
 	except:
 		pass
 
-def vietmedia_playlist(url):
+def youtube_playlist(url):
 	link = make_request(url)
 	link = ''.join(link.splitlines()).replace('\t','')
-	match = re.compile('src="//i.ytimg.com/vi/(.+?)".+?href="/playlist(.+?)">(.+?)<').findall(link)
+	match = re.compile('[src|data-thumb]="//i.ytimg.com/vi/(.+?)".+?href="/playlist(.+?)">(.+?)<').findall(link)    # Either src or data-thumb [src|data-thumb]
 	for thumb, url, name in match:
 		name = replace_all(name, dic)
 		thumb = 'https://i.ytimg.com/vi/' + thumb
-		addDir(name, url, 22, thumb, thumb)
+		if 'Liked videos' in name or 'Favorites' in name:
+			pass
+		else:
+			addDir(name, url, 22, thumb, thumb)
 
-def vietmedia_playlist_index(url):
+def youtube_playlist_index(url):
 	link = make_request('https://www.youtube.com/playlist' + url)
 	link = ''.join(link.splitlines()).replace('\t','')
 	newmatch = re.compile('data-title="(.+?)".+?href="\/watch\?v=(.+?)\&amp\;.+?data-thumb="(.+?)".+?aria-label.+?>(.+?)<\/span><\/div>').findall(link)
@@ -341,10 +457,10 @@ def vietmedia_playlist_index(url):
 		if '[Deleted Video]' in name:
 			pass
 		else:
-			addLink(name + '[COLOR orange] (' + duration + ')[/COLOR]', 'plugin://plugin.video.youtube/play/?video_id=' + url, 1, thumb, thumb)
+			addLink(name, 'plugin://plugin.video.youtube/play/?video_id=' + url, 1, thumb, thumb)
 	try:
 		match = re.compile('data-uix-load-more-href="(.+?)"').findall(link)
-		addDir('[COLOR magenta]Next page >>[/COLOR]', 'https://www.youtube.com' + match[0].replace('&amp;','&'), 23, '%s/nextpage.png'% iconpath, fanart)
+		addDir('[COLOR magenta]Next page >>[/COLOR]', 'https://www.youtube.com' + match[0].replace('&amp;','&'), 24, '%s/nextpage.png'% iconpath, fanart)
 	except:
 		pass
 
@@ -352,17 +468,35 @@ def next_page(url):
 	req = urllib2.Request(url)
 	req.add_header('User-Agent', 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:19.0) Gecko/20100101 Firefox/19.0')
 	response = urllib2.urlopen(req) 
-	link = response.read().decode('unicode-escape').encode('utf-8').replace('\\', '')
+	link = response.read()
 	response.close()
-	newlink = ''.join(link.splitlines()).replace('\t','')
-	match = re.compile('src="//i.ytimg.com/vi/(.+?)".+?aria-label.+?>(.+?)</span>.+?href="/watch\?v=(.+?)">(.+?)</a>').findall(newlink)
-	for thumb, duration, url, name in match:
+	newlink = ''.join(link.splitlines()).replace('\\', '').replace('\t','')
+	match = re.compile('src="//i.ytimg.com/vi/(.+?)".+?aria-label="(.+?)".+?dir="ltr" title="(.+?)".+?href="/watch\?v=(.+?)"').findall(newlink)
+	for thumb, duration, name, url in match:
 		name = replace_all(name, dic)
 		thumb = 'https://i.ytimg.com/vi/' + thumb
-		addLink(name + '[COLOR orange] (' + duration + ')[/COLOR]', 'plugin://plugin.video.youtube/play/?video_id=' + url, 1, thumb, thumb)
+		addLink(name, 'plugin://plugin.video.youtube/play/?video_id=' + url, 1, thumb, thumb)
 	try:
 		match = re.compile('data-uix-load-more-href="(.+?)"').findall(newlink)
 		addDir('[COLOR yellow][B]Next page [/B][/COLOR][COLOR lime][B]>>[/B][/COLOR]', 'https://www.youtube.com' + match[0].replace('&amp;','&'), 23, '%s/nextpage.png'% iconpath, fanart)
+	except:
+		pass
+
+def next_page_playlist(url):
+	req = urllib2.Request(url)
+	req.add_header('User-Agent', 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:19.0) Gecko/20100101 Firefox/19.0')
+	response = urllib2.urlopen(req) 
+	link = response.read()
+	response.close()
+	newlink = ''.join(link.splitlines()).replace('\\', '').replace('\t','')
+	match = re.compile('data-video-id="(.+?)".+?data-title="(.+?)".+?data-thumb="//i.ytimg.com/vi/(.+?)".+?aria-label="(.+?)"').findall(newlink)
+	for url, name, thumb, duration in match:
+		name = replace_all(name, dic)
+		thumb = 'https://i.ytimg.com/vi/' + thumb
+		addLink(name, 'plugin://plugin.video.youtube/play/?video_id=' + url, 1, thumb, thumb)
+	try:
+		match = re.compile('data-uix-load-more-href="(.+?)"').findall(newlink)
+		addDir('[COLOR magenta]Next page >>[/COLOR]', 'https://www.youtube.com' + match[0].replace('&amp;','&'), 24, '%s/nextpage.png'% iconpath, fanart)
 	except:
 		pass
 
@@ -378,7 +512,7 @@ def vietmedia_tutorials():
 			pass
 		else:
 			name = replace_all(name, dic)
-			addLink(name + '[COLOR orange] (' + duration + ')[/COLOR]', 'plugin://plugin.video.youtube/play/?video_id=' + url, 1, thumb, thumb)
+			addLink(name, 'plugin://plugin.video.youtube/play/?video_id=' + url, 1, thumb, thumb)
 	content = make_request(yt + 'playlist?list=PLCFeyxaD_7E3LLqjhIwkboAePgDT--8YF')
 	newcontent = ''.join(content.splitlines()).replace('\t','')
 	newmatch = re.compile('data-title="(.+?)".+?href="\/watch\?v=(.+?)\&amp\;.+?data-thumb="(.+?)".+?aria-label.+?>(.+?)<\/span><\/div>').findall(newcontent)
@@ -388,7 +522,7 @@ def vietmedia_tutorials():
 			pass
 		else:
 			name = replace_all(name, dic)
-			addLink(name + '[COLOR orange] (' + duration + ')[/COLOR]', 'plugin://plugin.video.youtube/play/?video_id=' + url, 1, thumb, thumb)
+			addLink(name, 'plugin://plugin.video.youtube/play/?video_id=' + url, 1, thumb, thumb)
 	thumb1 = '%s/utube.png'% iconpath
 	addLink('[COLOR magenta][B]Other Tutorials on YouTube - Những Hướng Dẫn Khác[/B][/COLOR]', 'NoLinkRequired', 1, thumb1, thumb1)
 	content = make_request(media_link()[1])
@@ -869,6 +1003,40 @@ def radio():
 		pass
 
 def adult():
+	addDir('[COLOR red][B]Adult Addons[/B][/COLOR]', 'adult_addons', 120, '%s/xxx.png'% iconpath, fanart)
+	try:
+		content = make_request(media_link()[4])
+		match = re.compile(m3u_regex).findall(content)
+		for thumb, name, url in match:
+			if 'plugin://plugin' in url:
+				if 'tvg-logo' in thumb:
+					thumb = re.compile(m3u_thumb_regex).findall(str(thumb))[0].replace(' ', '%20')
+					if thumb.startswith('http'):
+						addDir(name, url, 111, thumb, thumb)
+					else:
+						thumb = '%s/%s' % (iconpath, thumb)
+						addDir(name, url, 111, thumb, thumb)
+				else:
+					addDir(name, url, 111, icon, fanart)
+			else:
+				if 'tvg-logo' in thumb:
+					thumb = re.compile(m3u_thumb_regex).findall(str(thumb))[0].replace(' ', '%20')
+					if thumb.startswith('http'):
+						addLink(name, url, 1, thumb, thumb)
+					else:
+						thumb = '%s/%s' % (iconpath, thumb)
+						addLink(name, url, 1, thumb, thumb)
+				else:
+					addLink(name, url, 1, icon, fanart)
+	except:
+		pass
+	try:
+		content = make_request('http://www.giniko.com/watch.php?id=95')
+		match = re.compile('image: "([^"]*)",\s*file: "([^"]+)"').findall(content)
+		for thumb, url in match:
+			addLink('[COLOR magenta][B]Miami TV (Adult 18+)[/B][/COLOR]', url, 1, thumb, thumb)
+	except:
+		pass
 	try:
 		searchText = ('(Adult)') or ('(Public-Adult)')
 		if len(CCLOUDTV_SRV_URL) > 0:
@@ -885,21 +1053,38 @@ def adult():
 					adult_playlist(name, url, thumb)
 	except:
 		pass
-	try:
-		content = make_request(media_link()[4])
+
+def adult_addons():
+	adultreposinstaller = xbmc.translatePath(os.path.join(home, 'adult_repos.zip'))
+	if os.path.exists(adultreposinstaller):
+		d = xbmcgui.Dialog().yesno('Adult Repos Installer', 'Installing necessary repositories for “Adult Addons” section.', '', '[COLOR magenta]Cài đặt những repositories cần thiết cho mục “Adult Addons”[/COLOR]', '', '')
+		if d:
+			import time, extract
+			dp = xbmcgui.DialogProgress()
+			dp.create("Adult Repos Installer", "Working...", "", "")
+			addonfolder = xbmc.translatePath(os.path.join('special://', 'home'))
+			time.sleep(2)
+			dp.update(0,"", "Extracting zip files. Please wait...")
+			extract.all(adultreposinstaller,addonfolder,dp)
+			time.sleep(2)
+			os.remove(adultreposinstaller)
+			xbmcgui.Dialog().ok("Installation Completed.", "Please restart Kodi.", "", "[COLOR magenta]Vui lòng khởi động lại kodi.[/COLOR]")
+			sys.exit()
+		else:
+			sys.exit()
+	else:
+		content = make_request(adultaddons)
 		match = re.compile(m3u_regex).findall(content)
 		for thumb, name, url in match:
 			if 'tvg-logo' in thumb:
 				thumb = re.compile(m3u_thumb_regex).findall(str(thumb))[0].replace(' ', '%20')
 				if thumb.startswith('http'):
-					addLink(name, url, 1, thumb, thumb)
+					addDir(name, url, None, thumb, thumb)
 				else:
 					thumb = '%s/%s' % (iconpath, thumb)
-					addLink(name, url, 1, thumb, thumb)
+					addDir(name, url, None, thumb, thumb)
 			else:
-				addLink(name, url, 1, icon, fanart)
-	except:
-		pass
+				addDir(name, url, None, icon, fanart)
 
 def english():
 	try:
@@ -1349,13 +1534,24 @@ def get_params():
 				param[splitparams[0]] = splitparams[1]
 	return param
 
+def getDir(name, url, mode, iconimage, fanart):
+	u = sys.argv[0] + "?url=" + urllib.quote_plus(url) + "&mode=" + str(mode) + "&name=" + urllib.quote_plus(name) + "&iconimage=" + urllib.quote_plus(iconimage)
+	ok = True
+	liz = xbmcgui.ListItem(name, iconImage = "DefaultFolder.png", thumbnailImage = iconimage)
+	liz.setInfo( type = "Video", infoLabels = { "Title": name } )
+	liz.setProperty('fanart_image', fanart)
+	if ('www.youtube.com/user/' in url) or ('www.youtube.com/channel/' in url):
+		u = 'plugin://plugin.video.youtube/%s/%s/' % (url.split( '/' )[-2], url.split( '/' )[-1])
+	ok = xbmcplugin.addDirectoryItem(handle = int(sys.argv[1]), url = u, listitem = liz, isFolder = True)
+	return ok
+
 def addDir(name, url, mode, iconimage, fanart):
 	u = sys.argv[0] + "?url=" + urllib.quote_plus(url) + "&mode=" + str(mode) + "&name=" + urllib.quote_plus(name) + "&iconimage=" + urllib.quote_plus(iconimage)
 	ok = True
 	liz = xbmcgui.ListItem(name, iconImage = "DefaultFolder.png", thumbnailImage = iconimage)
 	liz.setInfo( type = "Video", infoLabels = { "Title": name } )
 	liz.setProperty('fanart_image', fanart)
-	if 'plugin://plugin' in url:
+	if 'plugin://plugin' in url or 'script://script' in url:
 		u = url
 	ok = xbmcplugin.addDirectoryItem(handle = int(sys.argv[1]), url = u, listitem = liz, isFolder = True)
 	return ok
@@ -1411,20 +1607,35 @@ elif mode == 3:
 elif mode == 4:
 	thongbao()
 
+elif mode == 18:
+	youtube_menu(url)
+
+elif mode == 19:
+	youtube_channels(url)
+
 elif mode == 20:
-	vietmedia_list()
+	youtube_list(url)
 
 elif mode == 21:
-	vietmedia_playlist(url)
+	youtube_playlist(url)
 
 elif mode == 22:
-	vietmedia_playlist_index(url)
+	youtube_playlist_index(url)
 
 elif mode == 23:
 	next_page(url)
 
+elif mode == 24:
+	next_page_playlist(url)
+
+elif mode == 25:
+	search_youtube()
+
+elif mode == 26:
+	youtube_search(url)
+
 elif mode == 27:
-	tutorial_links()
+	tutorial_links(url)
 
 elif mode == 30:
 	vietnam_group()
@@ -1545,5 +1756,14 @@ elif mode == 99:
 
 elif mode == 100:
 	 other_addons()
+
+elif mode == 110:
+	 other_sources()
+
+elif mode == 111:
+	 other_sources_list(url)
+
+elif mode == 120:
+	 adult_addons()
      
 xbmcplugin.endOfDirectory(plugin_handle)

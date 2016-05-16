@@ -1,0 +1,25 @@
+-----------------------------------
+JAVStream v0.72.1 (08 September 2015)
+-----------------------------------
+
+- Disable OpenLoad videos and enabled VideoMega links, so that some videos play. Will add OpenLoad back in for the next update
+
+-----------------------------------
+JAVStream v0.72 (08 September 2015)
+-----------------------------------
+
+- Fixed OpenLoad error issues (thnxs to mortael @WhiteCream)
+
+-----------------------------------
+JAVStream v0.71 (24 July 2015)
+-----------------------------------
+
+- Fixed Search functionality
+- Add specific JAV and Gravure Search features
+
+-----------------------------------
+JAVStream v0.7 (24 July 2015)
+-----------------------------------
+
+- Completely rewritten from the ground up. Splits JAV and Gravure into their own sections
+- Added new sources

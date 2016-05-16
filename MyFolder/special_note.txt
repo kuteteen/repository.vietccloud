@@ -1,0 +1,1 @@
+Kodi on iOS 9.xx fails (dependency not met) to install script.module.elementtree addon. To overcome this issue for addons like plugin.video.icefilms and plugin.video.ZemTV-shani, we can add optional="true" right behind the line that said <import addon="script.module.elementtree" /> in addon.xml 

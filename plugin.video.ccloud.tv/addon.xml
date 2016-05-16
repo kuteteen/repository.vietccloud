@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="plugin.video.ccloud.tv" name="cCloud.tv" version="1.6.6" provider-name="podgod-mod">
-  <requires>  
+<addon id="plugin.video.ccloud.tv" name="cCloud.tv" version="1.7.7" provider-name="podgod-mod">
+  <requires> 
   </requires>
   <extension point="xbmc.python.pluginsource" library="default.py">
     <provides>video</provides>
