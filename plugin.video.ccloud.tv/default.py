@@ -286,7 +286,7 @@ def other_sources_list(url):
 def other_addons():
 	reposinstaller = xbmc.translatePath(os.path.join(home, 'repos.zip'))
 	if os.path.exists(reposinstaller):
-		d = xbmcgui.Dialog().yesno('Repos Installer', 'Installing necessary repositories for “Other Addons” section.', '', '[COLOR magenta]Cài đặt những repositories cần thiết cho mục “Other Addons”[/COLOR]', '', '')
+		d = xbmcgui.Dialog().yesno('Repos Installer', 'Do you want to install necessary repositories for "Other Addons" section?', '[COLOR magenta]Quí vị có muốn cài đặt những repositories cần thiết cho mục "Other Addons" không?[/COLOR]', '', '')
 		if d:
 			import time, extract
 			dp = xbmcgui.DialogProgress()
@@ -1057,7 +1057,7 @@ def adult():
 def adult_addons():
 	adultreposinstaller = xbmc.translatePath(os.path.join(home, 'adult_repos.zip'))
 	if os.path.exists(adultreposinstaller):
-		d = xbmcgui.Dialog().yesno('Adult Repos Installer', 'Installing necessary repositories for “Adult Addons” section.', '', '[COLOR magenta]Cài đặt những repositories cần thiết cho mục “Adult Addons”[/COLOR]', '', '')
+		d = xbmcgui.Dialog().yesno('Adult Repos Installer', 'Do you want to install necessary repositories for "Adult Addons" section?', '[COLOR magenta]Quí vị có muốn cài đặt những repositories cần thiết cho mục "Adult Addons" không?[/COLOR]', '', '')
 		if d:
 			import time, extract
 			dp = xbmcgui.DialogProgress()
@@ -1755,15 +1755,15 @@ elif mode == 99:
 	search()
 
 elif mode == 100:
-	 other_addons()
+	other_addons()
 
 elif mode == 110:
-	 other_sources()
+	other_sources()
 
 elif mode == 111:
-	 other_sources_list(url)
+	other_sources_list(url)
 
 elif mode == 120:
-	 adult_addons()
+	adult_addons()
      
 xbmcplugin.endOfDirectory(plugin_handle)
