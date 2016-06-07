@@ -68,6 +68,19 @@ Rất mong các bạn tuân thủ và tạo động lực cho chúng tôi trong 
     </extension>
 </addon>
 
+<addon id="plugin.program.clearcache" name="Clear Cache" version="1.0.0" provider-name="clearcache">
+	<requires>
+	</requires>
+	<extension point="xbmc.python.pluginsource" library="default.py">
+		<provides>video audio executable image</provides>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary>Clear cache</summary>
+		<description>Clear cache.</description>
+		<platform>all</platform>
+	</extension>
+</addon>
+
 <!--suppress ALL -->
 <addon id="plugin.video.1channel" version="2.5.64" name="1Channel" provider-name="Bstrdsmkr, tuxen, tknorris">
     <requires>
