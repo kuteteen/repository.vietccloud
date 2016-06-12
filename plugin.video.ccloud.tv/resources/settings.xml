@@ -1,8 +1,8 @@
 <settings>
-	<category label="Testers">
-		<setting label="Local M3U Playlist Tester" type="lsep" />
+	<category label="Add Source">
+		<setting label="Local M3U Playlist" type="lsep" />
 		<setting id="local_path" type="file" label="Select Local M3U Playlist" default="" />
-		<setting label="Online M3U Playlist Tester" type="lsep" />
+		<setting label="Online M3U Playlist" type="lsep" />
 		<setting id="online_path" type="text" label="[B]Enter Online M3U Playlist URL[/B]" default="" />
 	</category>
 	<category label="General">
