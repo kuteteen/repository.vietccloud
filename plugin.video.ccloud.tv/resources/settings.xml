@@ -6,7 +6,7 @@
 		<setting id="online_path" type="text" label="[B]Enter Online M3U Playlist URL[/B]" default="" />
 	</category>
 	<category label="General">
-		<setting id="enable_autorun" type="bool" label="Enable Autostart cCloud.tv" default="false" />
+		<setting id="enable_autorun" type="bool" label="Enable Autostart VietcCloud" default="false" />
 	</category>
 	<category label="Adult">
 		<setting id="enable_adult_section" type="bool" label="Enable Adult Section (by enabling, you confirm you are 18+)" default="false" />
