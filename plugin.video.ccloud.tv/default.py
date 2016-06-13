@@ -53,7 +53,6 @@ def media_link():
 	while i < len(match):
 		match[i] = match[i].decode('base64').decode('base64')
 		i+=1
-	print match
 	return match
 
 def replace_all(text, mydict):
