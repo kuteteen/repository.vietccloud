@@ -1,2 +1,4 @@
 [B]2.0.0[/B]
 - Major update
+[B]2.0.1[/B]
+- Update

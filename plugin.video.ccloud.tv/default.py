@@ -2,6 +2,7 @@
 
 import urllib, urllib2, sys, re, os, base64
 import xbmc, xbmcgui, xbmcplugin, xbmcaddon
+from decrypt import key
 
 plugin_handle = int(sys.argv[1])
 mysettings = xbmcaddon.Addon(id = 'plugin.video.ccloud.tv')
@@ -48,7 +49,7 @@ def removeAccents(s):
 
 def media_link():
 	#match = re.compile(media_regex).findall(read_file(os.path.expanduser(r'~\Desktop\mymedialink.txt')))
-	match =  re.compile(media_regex).findall(make_request(mymedialink))
+	match = re.compile(media_regex).findall(make_request(mymedialink))
 	i=0
 	while i < len(match):
 		match[i] = match[i].decode('base64').decode('base64')
@@ -78,17 +79,17 @@ def platform():
 		return 'ios'
 
 def main():
-	addDir('[COLOR magenta][B]Kênh Giải Trí Tổng Hợp[/B][/COLOR]', 'giaitri', 110, '%s/tonghop.png'% iconpath, fanart)
-	addDir('[COLOR orange][B]Kênh YouTube[/B][/COLOR]', tubemenu, 18, '%s/kenhyoutube.png'% iconpath, fanart)
-	addDir('[COLOR cyan][B]Other Addons[/B][/COLOR]', 'addons', 100, '%s/addons.png'% iconpath, fanart)
-	addDir('[COLOR lime][B]Link Checker[/B][/COLOR]', 'linkchecker', 40, '%s/linkchecker.png'% iconpath, fanart)
-	addDir('[COLOR lime][B]Local M3U Playlist[/B][/COLOR]', 'localplaylist', 41, '%s/local.png'% iconpath, fanart)
-	addDir('[COLOR lime][B]Online M3U Playlist[/B][/COLOR]', 'onlineplaylist', 42, '%s/online.png'% iconpath, fanart)
-	addDir('[COLOR yellow][B]Clear Cache[/B][/COLOR]', 'clearcache', 50, '%s/clearcache.png'% iconpath, fanart)
+	addDir('[COLOR magenta][B]Kênh Giải Trí Tổng Hợp[/B][/COLOR]', 'giaitri', 110, '%s/tonghop.png'% iconpath, fanart, isFolder = True)
+	addDir('[COLOR orange][B]Kênh YouTube[/B][/COLOR]', tubemenu, 18, '%s/kenhyoutube.png'% iconpath, fanart, isFolder = True)
+	addDir('[COLOR cyan][B]Other Addons[/B][/COLOR]', 'addons', 100, '%s/addons.png'% iconpath, fanart, isFolder = True)
+	addDir('[COLOR lime][B]Link Checker[/B][/COLOR]', 'linkchecker', 40, '%s/linkchecker.png'% iconpath, fanart, isFolder = True)
+	addDir('[COLOR lime][B]Local M3U Playlist[/B][/COLOR]', 'localplaylist', 41, '%s/local.png'% iconpath, fanart, isFolder = True)
+	addDir('[COLOR lime][B]Online M3U Playlist[/B][/COLOR]', 'onlineplaylist', 42, '%s/online.png'% iconpath, fanart, isFolder = True)
+	addDir('[COLOR yellow][B]Clear Cache[/B][/COLOR]', 'clearcache', 50, '%s/clearcache.png'% iconpath, fanart, isFolder = True)
 	if platform() == 'windows' or platform() == 'osx':
-		addDir('[COLOR darkblue][B]Tutorials +[/B][/COLOR]', (media_link()[0]), 27, '%s/tutsplus.png'% iconpath, fanart)
+		addDir('[COLOR violet][B]Tutorials +[/B][/COLOR]', (media_link()[0]), 27, '%s/tutsplus.png'% iconpath, fanart, isFolder = True)
 	if enable_adult_section == 'true':
-		addDir('[COLOR red][B]Adult XXX (18+)[/B][/COLOR]', 'adult', 98, '%s/18.png'% iconpath, fanart)
+		addDir('[COLOR red][B]Adult XXX (18+)[/B][/COLOR]', 'adult', 98, '%s/18.png'% iconpath, fanart, isFolder = True)
 
 def clear_cache():  #### plugin.video.xbmchubmaintenance ####
 	xbmc_cache_path = os.path.join(xbmc.translatePath('special://temp'))
@@ -123,10 +124,10 @@ def other_sources():
 		if 'tvg-logo' in thumb:
 			thumb = re.compile(m3u_thumb_regex).findall(str(thumb))[0].replace(' ', '%20')
 			if thumb.startswith('http'):
-				addDir(name, url, 111, thumb, thumb)
+				addDir(name, url, 111, thumb, thumb, isFolder = True)
 			else:
 				thumb = '%s/%s' % (iconpath, thumb)
-				addDir(name, url, 111, thumb, thumb)
+				addDir(name, url, 111, thumb, thumb, isFolder = True)
 		else:
 			addDir(name, url, 111, icon, fanart)
 
@@ -145,9 +146,9 @@ def m3u_playlist(name, url, thumb):
 	if ('youtube.com/user/' in url) or ('youtube.com/channel/' in url) or ('youtube/user/' in url) or ('youtube/channel/' in url):
 		if 'tvg-logo' in thumb:
 			thumb = re.compile(m3u_thumb_regex).findall(str(thumb))[0].replace(' ', '%20')
-			addDir(name, url, '', thumb, thumb)
+			addDir(name, url, '', thumb, thumb, isFolder = True)
 		else:
-			addDir(name, url, '', icon, fanart)
+			addDir(name, url, '', icon, fanart, isFolder = True)
 	else:
 		if 'youtube.com/watch?v=' in url:
 			url = 'plugin://plugin.video.youtube/play/?video_id=%s' % (url.split('=')[-1])
@@ -155,9 +156,9 @@ def m3u_playlist(name, url, thumb):
 			url = url
 		if 'tvg-logo' in thumb:
 			thumb = re.compile(m3u_thumb_regex).findall(str(thumb))[0].replace(' ', '%20')
-			addLink(name, url, 1, thumb, thumb)
+			addDir(name, url, 1, thumb, thumb, isFolder = False)
 		else:
-			addLink(name, url, 1, icon, fanart)
+			addDir(name, url, 1, icon, fanart, isFolder = False)
 
 def other_addons():
 	reposinstaller = xbmc.translatePath(os.path.join(home, 'repos.zip'))
@@ -170,7 +171,7 @@ def other_addons():
 			addonfolder = xbmc.translatePath(os.path.join('special://', 'home'))
 			time.sleep(2)
 			dp.update(0,"", "Extracting zip files. Please wait...")
-			extract.all(reposinstaller,addonfolder,dp)
+			extract.all(reposinstaller, addonfolder, dp)
 			time.sleep(2)
 			os.remove(reposinstaller)
 			xbmcgui.Dialog().ok("Installation Completed.", "Please restart Kodi.", "", "[COLOR magenta]Vui lòng khởi động lại kodi.[/COLOR]")
@@ -185,12 +186,12 @@ def other_addons():
 			if 'tvg-logo' in thumb:
 				thumb = re.compile(m3u_thumb_regex).findall(str(thumb))[0].replace(' ', '%20')
 				if thumb.startswith('http'):
-					addDir(name, url, None, thumb, thumb)
+					addDir(name, url, None, thumb, thumb, isFolder = True)
 				else:
 					thumb = '%s/%s' % (iconpath, thumb)
-					addDir(name, url, None, thumb, thumb)
+					addDir(name, url, None, thumb, thumb, isFolder = True)
 			else:
-				addDir(name, url, None, icon, fanart)
+				addDir(name, url, None, icon, fanart, isFolder = True)
 
 def tutorial_links(url):
 	content = make_request(url)
@@ -201,42 +202,36 @@ def tutorial_links(url):
 				if 'tvg-logo' in thumb:
 					thumb = re.compile(m3u_thumb_regex).findall(str(thumb))[0].replace(' ', '%20')
 					if thumb.startswith('http'):
-						addDir(name, url, None, thumb, thumb)
+						addDir(name, url, None, thumb, thumb, isFolder = True)
 					else:
 						thumb = '%s/%s' % (iconpath, thumb)
-						addDir(name, url, None, thumb, thumb)
+						addDir(name, url, None, thumb, thumb, isFolder = True)
 				else:
-					addDir(name, url, None, icon, fanart)
+					addDir(name, url, None, icon, fanart, isFolder = True)
 			else:
 				if 'tvg-logo' in thumb:
 					thumb = re.compile(m3u_thumb_regex).findall(str(thumb))[0].replace(' ', '%20')
 					if thumb.startswith('http'):
-						addLink(name, url, 1, thumb, thumb)
+						addDir(name, url, 1, thumb, thumb, isFolder = False)
 					else:
 						thumb = '%s/%s' % (iconpath, thumb)
-						addLink(name, url, 1, thumb, thumb)
+						addDir(name, url, 1, thumb, thumb, isFolder = False)
 				else:
-					addLink(name, url, 1, icon, fanart)
+					addDir(name, url, 1, icon, fanart, isFolder = False)
 	elif url.endswith('xml'):
 		match = re.compile(xml_regex).findall(content)
 		for name, url, thumb in match:
 			if 'plugin.program.chrome.launcher' in url:
-				addDir(name, url, None, thumb, thumb)
+				addDir(name, url, None, thumb, thumb, isFolder = True)
 			else:
-				addLink(name, url, 1, thumb, thumb)
+				addDir(name, url, 1, thumb, thumb, isFolder = False)
 
 def youtube_menu(url):
-	addDir('[COLOR yellow][B]YouTube - Search[/B][/COLOR]', 'ytsearch', 25, ytsearchicon, ytsearchicon)
+	addDir('[COLOR yellow][B]YouTube - Search[/B][/COLOR]', 'ytsearch', 25, ytsearchicon, ytsearchicon, isFolder = True)
 	content = make_request(url)
 	match = re.compile(xml_regex+'\s*<mode>(.*?)</mode>').findall(content)
 	for name, url, thumb, mode in match:
-		if mode == '20':
-			getDir(name, url, None, thumb, thumb)
-		else:
-			if 'plugin://plugin.video.youtube' in url:
-				addLink(name, url, mode, thumb, thumb)
-			else:
-				addDir(name, url, mode, thumb, thumb)
+		addDir(name, url, mode, thumb, thumb, isFolder = True)
 
 def search_youtube(): 
 	try:
@@ -256,17 +251,17 @@ def youtube_search(url):
 		name = replace_all(name, mydict)
 		thumb = 'https://i.ytimg.com/vi/' + url + '/mqdefault.jpg'
 		url = 'plugin://plugin.video.youtube/play/?video_id=' + url
-		addLink(name + ' (' + duration + ')', url, 1, thumb, fanart)
+		addDir(name + ' (' + duration + ')', url, 1, thumb, fanart, isFolder = False)
 	match = re.compile('href="/results\?search_query=(.+?)".+?aria-label="Go to (.+?)"').findall(content)
 	for url, name in match:
 		url = 'https://www.youtube.com/results?search_query=' + url
-		addDir('[COLOR cyan]' + name + '[/COLOR]', url, 26, ytsearchicon, ytsearchicon)
+		addDir('[COLOR cyan]' + name + '[/COLOR]', url, 26, ytsearchicon, ytsearchicon, isFolder = True)
 
 def youtube_channels(url):
 	content = make_request(url)
 	match = re.compile(xml_regex).findall(content)
 	for name, url, thumb in match:
-		getDir(name, url, None, thumb, thumb)
+		addDir(name, url, None, thumb, thumb, isFolder = True)
 
 def adult():
 	try:
@@ -274,16 +269,16 @@ def adult():
 		match = re.compile(xml_regex+'\s*<mode>(.*?)</mode>').findall(content)
 		for name, url, thumb, mode in match:
 			if mode == '1':
-				addLink(name, url, 1, thumb, fanart)
+				addDir(name, url, 1, thumb, fanart, isFolder = False)
 			else:
-				addDir(name, url, mode, thumb, fanart)
+				addDir(name, url, mode, thumb, fanart, isFolder = True)
 	except:
 		pass
 	try:
 		content = make_request('http://www.giniko.com/watch.php?id=95')
 		match = re.compile('image: "([^"]*)",\s*file: "([^"]+)"').findall(content)
 		for thumb, url in match:
-			addLink('[COLOR yellow][B]Miami TV (Adult 18+)[/B][/COLOR]', url, 1, thumb, thumb)
+			addDir('[COLOR yellow][B]Miami TV (Adult 18+)[/B][/COLOR]', url, 1, thumb, thumb, isFolder = False)
 	except:
 		pass
 
@@ -298,7 +293,7 @@ def adult_addons():
 			addonfolder = xbmc.translatePath(os.path.join('special://', 'home'))
 			time.sleep(2)
 			dp.update(0,"", "Extracting zip files. Please wait...")
-			extract.all(adultreposinstaller,addonfolder,dp)
+			extract.all(adultreposinstaller, addonfolder, dp)
 			time.sleep(2)
 			os.remove(adultreposinstaller)
 			xbmcgui.Dialog().ok("Installation Completed.", "Please restart Kodi.", "", "[COLOR magenta]Vui lòng khởi động lại kodi.[/COLOR]")
@@ -312,12 +307,12 @@ def adult_addons():
 			if 'tvg-logo' in thumb:
 				thumb = re.compile(m3u_thumb_regex).findall(str(thumb))[0].replace(' ', '%20')
 				if thumb.startswith('http'):
-					addDir(name, url, None, thumb, thumb)
+					addDir(name, url, None, thumb, thumb, isFolder = True)
 				else:
 					thumb = '%s/%s' % (iconpath, thumb)
-					addDir(name, url, None, thumb, thumb)
+					addDir(name, url, None, thumb, thumb, isFolder = True)
 			else:
-				addDir(name, url, None, icon, fanart)
+				addDir(name, url, None, icon, fanart, isFolder = True)
 
 def adult_videos(url):
 	content = make_request(url)
@@ -326,20 +321,20 @@ def adult_videos(url):
 		if 'tvg-logo' in thumb:
 			thumb = re.compile(m3u_thumb_regex).findall(str(thumb))[0].replace(' ', '%20')
 			if thumb.startswith('http'):
-				addLink(name, url, 1, thumb, thumb)
+				addDir(name, url, 1, thumb, thumb, isFolder = False)
 			else:
 				thumb = '%s/%s' % (iconpath, thumb)
-				addLink(name, url, 1, thumb, thumb)
+				addDir(name, url, 1, thumb, thumb, isFolder = False)
 		else:
-			addLink(name, url, 1, icon, fanart)
+			addDir(name, url, 1, icon, fanart, isFolder = False)
+
+def play_other_video(url):
+	xbmc.Player().play(url)
 
 def play_video(url):
-	if 'plugin://plugin' in url:
-		xbmc.executebuiltin("PlayMedia("+url+")")
-	else:
-		media_url = url
-		item = xbmcgui.ListItem(name, path = media_url)
-		xbmcplugin.setResolvedUrl(int(sys.argv[1]), True, item)
+	media_url = url
+	item = xbmcgui.ListItem(name, path = media_url)
+	xbmcplugin.setResolvedUrl(int(sys.argv[1]), True, item)
 	return
 
 def channelTester():
@@ -359,7 +354,10 @@ def channelTester():
 		if len(name) > 0 and len(url) > 0:
 			if len(thumb) < 1:
 				thumb = icon
-			addLink(name, url, 1, thumb, fanart)
+			if 'plugin://plugin' in url:
+				addDir(name, url, 3, thumb, fanart, isFolder = False)
+			else:
+				addDir(name, url, 1, thumb, fanart, isFolder = False)
 	except:
 		pass
 
@@ -389,15 +387,6 @@ def onlineTester():
 			except:
 				pass
 
-def key(k, e):
-	dec = []
-	e = base64.urlsafe_b64decode(e)
-	for i in range(len(e)):
-		k_c = k[i % len(k)]
-		dec_c = chr((256 + ord(e[i]) - ord(k_c)) % 256)
-		dec.append(dec_c)
-	return "".join(dec)
-
 def get_params():
 	param = []
 	paramstring = sys.argv[2]
@@ -415,35 +404,20 @@ def get_params():
 				param[splitparams[0]] = splitparams[1]
 	return param
 
-def getDir(name, url, mode, iconimage, fanart):
+def addDir(name, url, mode, iconimage, fanart, isFolder = False):
 	u = sys.argv[0] + "?url=" + urllib.quote_plus(url) + "&mode=" + str(mode) + "&name=" + urllib.quote_plus(name) + "&iconimage=" + urllib.quote_plus(iconimage)
 	ok = True
 	liz = xbmcgui.ListItem(name, iconImage = "DefaultFolder.png", thumbnailImage = iconimage)
 	liz.setInfo( type = "Video", infoLabels = { "Title": name } )
 	liz.setProperty('fanart_image', fanart)
-	if ('www.youtube.com/user/' in url) or ('www.youtube.com/channel/' in url):
-		u = 'plugin://plugin.video.youtube/%s/%s/' % (url.split( '/' )[-2], url.split( '/' )[-1])
-	ok = xbmcplugin.addDirectoryItem(handle = int(sys.argv[1]), url = u, listitem = liz, isFolder = True)
-	return ok
-
-def addDir(name, url, mode, iconimage, fanart):
-	u = sys.argv[0] + "?url=" + urllib.quote_plus(url) + "&mode=" + str(mode) + "&name=" + urllib.quote_plus(name) + "&iconimage=" + urllib.quote_plus(iconimage)
-	ok = True
-	liz = xbmcgui.ListItem(name, iconImage = "DefaultFolder.png", thumbnailImage = iconimage)
-	liz.setInfo( type = "Video", infoLabels = { "Title": name } )
-	liz.setProperty('fanart_image', fanart)
-	if 'plugin://plugin' in url or 'script://script' in url:
+	if not isFolder:
+		liz.setProperty('IsPlayable', 'true')
+	elif 'plugin://plugin' in url or 'script://script' in url:
 		u = url
-	ok = xbmcplugin.addDirectoryItem(handle = int(sys.argv[1]), url = u, listitem = liz, isFolder = True)
+	elif ('www.youtube.com/user/' in url) or ('www.youtube.com/channel/' in url):
+		u = 'plugin://plugin.video.youtube/%s/%s/' % (url.split( '/' )[-2], url.split( '/' )[-1])
+	ok = xbmcplugin.addDirectoryItem(handle = int(sys.argv[1]), url = u, listitem = liz, isFolder = isFolder)
 	return ok
-
-def addLink(name, url, mode, iconimage, fanart):
-	u = sys.argv[0] + "?url=" + urllib.quote_plus(url) + "&mode=" + str(mode) + "&name=" + urllib.quote_plus(name) + "&iconimage=" + urllib.quote_plus(iconimage)
-	liz = xbmcgui.ListItem(name, iconImage = "DefaultVideo.png", thumbnailImage = iconimage)
-	liz.setInfo( type = "Video", infoLabels = { "Title": name } )
-	liz.setProperty('fanart_image', fanart)
-	liz.setProperty('IsPlayable', 'true')
-	ok = xbmcplugin.addDirectoryItem(handle = int(sys.argv[1]), url = u, listitem = liz)
 
 iconpath = key(myk, kbase+'PPx9HhpM3Z2NPkxNfU')
 mymedialink = key(myk, kbase+'PPx9HhpNHv1srYzMTY2OPPpN3d6A==')
@@ -486,8 +460,12 @@ elif mode == 1:
 elif mode == 2:
 	m3u_online()
 
+elif mode == 3:
+	play_other_video(url)
+
 elif mode == 18:
 	youtube_menu(url)
+	xbmc.executebuiltin('Container.SetViewMode(500)')
 
 elif mode == 19:
 	youtube_channels(url)
