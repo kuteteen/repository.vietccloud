@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-import urllib, urllib2, sys, re, os, base64
+import urllib, urllib2, sys, re, os, shutil, base64
 import xbmc, xbmcgui, xbmcplugin, xbmcaddon
 from decrypt import key
 
