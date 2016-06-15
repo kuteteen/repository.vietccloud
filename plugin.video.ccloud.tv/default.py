@@ -129,7 +129,7 @@ def other_sources():
 				thumb = '%s/%s' % (iconpath, thumb)
 				addDir(name, url, 111, thumb, thumb, isFolder = True)
 		else:
-			addDir(name, url, 111, icon, fanart)
+			addDir(name, url, 111, icon, fanart, isFolder = True)
 
 def other_sources_list(url):
 	content = make_request(url)
