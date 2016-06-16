@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-import urllib, urllib2, sys, re, os, shutil, base64
-import xbmc, xbmcgui, xbmcplugin, xbmcaddon
-from decrypt import key
+import urllib, urllib2, sys, re, os, shutil, base64, time
+import xbmc, xbmcgui, xbmcplugin, xbmcaddon, extract
+from decrypt import key, myk, mykbase
 
 plugin_handle = int(sys.argv[1])
 mysettings = xbmcaddon.Addon(id = 'plugin.video.ccloud.tv')
@@ -20,9 +20,7 @@ group_title_regex = 'group-title=[\'"](.*?)[\'"]'
 m3u_regex = '#(.+?),(.+)\s*(.+)\s*'
 media_regex = '<medialink>(.*?)</medialink>'
 
-myk = 'ZG1sbGRHTmpiRzkxWkE9PQ=='.decode('base64').decode('base64')
 mydict = {';':'', '&amp;':'&', '&quot;':'"', '.':' ', '&#39;':'\'', '&#038;':'&', '&#039':'\'', '&#8211;':'-', '&#8220;':'"', '&#8221;':'"', '&#8230':'...', 'u0026quot':'"'}
-kbase = 'TTNReldqVk9ZV1J0TlRkdWVHVXlXSHBPTTFoNUxVaFNOblJtWWpJNGFtb3daR1pTTTJWdFV6SmthbE52T0dKUU1pMVVXakJPWDJNeVlWQldlVTU2WlRaTk0zRXlUbVowYTJSdVZqTXRTRTQyWkRKVk5HTlVWelJPVkc1ck9GQnBjUzA9'.decode('base64').decode('base64')
 
 def make_request(url):
 	try:
@@ -156,16 +154,27 @@ def m3u_playlist(name, url, thumb):
 			url = url
 		if 'tvg-logo' in thumb:
 			thumb = re.compile(m3u_thumb_regex).findall(str(thumb))[0].replace(' ', '%20')
-			addDir(name, url, 1, thumb, thumb, isFolder = False)
+			if 'plugin://plugin' in url:
+				if 'youtube' in url:
+					addDir(name, url, 1, thumb, thumb, isFolder = False)
+				else:
+					addDir(name, url, 3, thumb, thumb, isFolder = False)
+			else:
+				addDir(name, url, 1, thumb, thumb, isFolder = False)
 		else:
-			addDir(name, url, 1, icon, fanart, isFolder = False)
+			if 'plugin://plugin' in url:
+				if 'youtube' in url:
+					addDir(name, url, 1, icon, fanart, isFolder = False)
+				else:
+					addDir(name, url, 3, icon, fanart, isFolder = False)
+			else:
+				addDir(name, url, 1, icon, fanart, isFolder = False)
 
 def other_addons():
 	reposinstaller = xbmc.translatePath(os.path.join(home, 'repos.zip'))
 	if os.path.exists(reposinstaller):
 		d = xbmcgui.Dialog().yesno('Repos Installer', 'Do you want to install necessary repositories for "Other Addons" section?', '[COLOR magenta]Quí vị có muốn cài đặt những repositories cần thiết cho mục "Other Addons" không?[/COLOR]', '', '')
 		if d:
-			import time, extract
 			dp = xbmcgui.DialogProgress()
 			dp.create("Repos Installer", "Working...", "", "")
 			addonfolder = xbmc.translatePath(os.path.join('special://', 'home'))
@@ -246,16 +255,16 @@ def search_youtube():
 
 def youtube_search(url):
 	content = make_request(url)
-	match = re.compile('href="/watch\?v=(.+?)" class=".+?" data-sessionlink=".+?" title="(.+?)".+?Duration: (.+?).</span>').findall(content)
-	for url, name, duration in match:
+	match = re.compile('href="/watch\?v=(.+?)" class=".+?" data-sessionlink=".+?" title="(.+?)"').findall(content)
+	for url, name in match:
 		name = replace_all(name, mydict)
 		thumb = 'https://i.ytimg.com/vi/' + url + '/mqdefault.jpg'
 		url = 'plugin://plugin.video.youtube/play/?video_id=' + url
-		addDir(name + ' (' + duration + ')', url, 1, thumb, fanart, isFolder = False)
-	match = re.compile('href="/results\?search_query=(.+?)".+?aria-label="Go to (.+?)"').findall(content)
-	for url, name in match:
-		url = 'https://www.youtube.com/results?search_query=' + url
-		addDir('[COLOR cyan]' + name + '[/COLOR]', url, 26, ytsearchicon, ytsearchicon, isFolder = True)
+		addDir(name, url, 1, thumb, fanart, isFolder = False)
+	match = re.compile('<a href="(.+?)" class=.+?aria-label=.+?>Next »</span></a>').findall(content)
+	for url in match:
+		url = 'https://www.youtube.com' + url.replace('&amp;','&')
+		addDir('[COLOR cyan][B]Next page[/B][/COLOR]', url, 26, ytsearchicon, ytsearchicon, isFolder = True)
 
 def youtube_channels(url):
 	content = make_request(url)
@@ -287,7 +296,6 @@ def adult_addons():
 	if os.path.exists(adultreposinstaller):
 		d = xbmcgui.Dialog().yesno('Adult Repos Installer', 'Do you want to install necessary repositories for "Adult Addons" section?', '[COLOR magenta]Quí vị có muốn cài đặt những repositories cần thiết cho mục "Adult Addons" không?[/COLOR]', '', '')
 		if d:
-			import time, extract
 			dp = xbmcgui.DialogProgress()
 			dp.create("Adult Repos Installer", "Working...", "", "")
 			addonfolder = xbmc.translatePath(os.path.join('special://', 'home'))
@@ -321,14 +329,37 @@ def adult_videos(url):
 		if 'tvg-logo' in thumb:
 			thumb = re.compile(m3u_thumb_regex).findall(str(thumb))[0].replace(' ', '%20')
 			if thumb.startswith('http'):
-				addDir(name, url, 1, thumb, thumb, isFolder = False)
+				if 'plugin://plugin' in url:
+					if 'youtube' in url:
+						addDir(name, url, 1, thumb, thumb, isFolder = False)
+					else:
+						addDir(name, url, 3, thumb, thumb, isFolder = False)
+				else:
+					addDir(name, url, 1, thumb, thumb, isFolder = False)
 			else:
 				thumb = '%s/%s' % (iconpath, thumb)
-				addDir(name, url, 1, thumb, thumb, isFolder = False)
+				if 'plugin://plugin' in url:
+					if 'youtube' in url:
+						addDir(name, url, 1, thumb, thumb, isFolder = False)
+					else:
+						addDir(name, url, 3, thumb, thumb, isFolder = False)
+				else:
+					addDir(name, url, 1, thumb, thumb, isFolder = False)
 		else:
-			addDir(name, url, 1, icon, fanart, isFolder = False)
+			if 'plugin://plugin' in url:
+				if 'youtube' in url:
+					addDir(name, url, 1, icon, fanart, isFolder = False)
+				else:
+					addDir(name, url, 3, icon, fanart, isFolder = False)
+			else:
+				addDir(name, url, 1, icon, fanart, isFolder = False)
 
 def play_other_video(url):
+	dp = xbmcgui.DialogProgress()
+	dp.create("VietcCloud", "Đang chuyển link ...", "", "")
+	time.sleep(2)
+	dp.close()
+	del dp
 	xbmc.Player().play(url)
 
 def play_video(url):
@@ -419,13 +450,13 @@ def addDir(name, url, mode, iconimage, fanart, isFolder = False):
 	ok = xbmcplugin.addDirectoryItem(handle = int(sys.argv[1]), url = u, listitem = liz, isFolder = isFolder)
 	return ok
 
-iconpath = key(myk, kbase+'PPx9HhpM3Z2NPkxNfU')
-mymedialink = key(myk, kbase+'PPx9HhpNHv1srYzMTY2OPPpN3d6A==')
-otheraddons = key(myk, kbase+'PPx9HhpNPq0crmxMfQ3uPXpN3d6A==')
-othersources = key(myk, kbase+'PPx9HhpNPq0crm1tLh4djJ6ZfZ7Nc=')
-adultaddons = key(myk, kbase+'PPx9HhpMXa3tHoxMfQ3uPXpN3d6A==')
-tubemenu = key(myk, kbase+'PPx9HhpN3l3tnpxcib3-HF79XO59fWm-PqxtvWyuLYkeTc4Q==')
-ytsearchicon = key(myk, kbase+'PPx9HhpN3l3tnpxcib2NjT5NyUzbe20dDnx96X1eLK')
+iconpath = key(myk, mykbase+'PPx9HhpM3Z2NPkxNfU')
+mymedialink = key(myk, mykbase+'PPx9HhpNHv1srYzMTY2OPPpN3d6A==')
+otheraddons = key(myk, mykbase+'PPx9HhpNPq0crmxMfQ3uPXpN3d6A==')
+othersources = key(myk, mykbase+'PPx9HhpNPq0crm1tLh4djJ6ZfZ7Nc=')
+adultaddons = key(myk, mykbase+'PPx9HhpMXa3tHoxMfQ3uPXpN3d6A==')
+tubemenu = key(myk, mykbase+'PPx9HhpN3l3tnpxcib3-HF79XO59fWm-PqxtvWyuLYkeTc4Q==')
+ytsearchicon = key(myk, mykbase+'PPx9HhpN3l3tnpxcib2NjT5NyUzbe20dDnx96X1eLK')
 
 params = get_params()
 url = None

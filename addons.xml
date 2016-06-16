@@ -204,7 +204,7 @@ Rất mong các bạn tuân thủ và tạo động lực cho chúng tôi trong 
 	</extension>
 </addon>
 
-<addon id="plugin.video.ccloud.tv" name="VietcCloud" version="2.0.1" provider-name="vietccloud">
+<addon id="plugin.video.ccloud.tv" name="VietcCloud" version="2.0.2" provider-name="vietccloud">
 	<requires>
 	</requires>
 	<extension point="xbmc.python.pluginsource" library="default.py">
