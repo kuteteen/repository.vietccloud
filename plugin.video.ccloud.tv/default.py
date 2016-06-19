@@ -13,6 +13,8 @@ iconpath = xbmc.translatePath(os.path.join(home, 'resources/icons'))
 local_path = mysettings.getSetting('local_path')
 online_path = mysettings.getSetting('online_path')
 enable_adult_section = mysettings.getSetting('enable_adult_section')
+subtitle = key(myk, mykbase+'PPx9HhpLbb3Mrm2cjQtd7Q29yU6szI4NLY0OXeyaLW1eA=')
+#subtitle = xbmc.translatePath(os.path.join(home, "vietccloud.srt"))
 
 xml_regex = '<title>(.*?)</title>\s*<link>(.*?)</link>\s*<thumbnail>(.*?)</thumbnail>'
 m3u_thumb_regex = 'tvg-logo=[\'"](.*?)[\'"]'
@@ -278,9 +280,9 @@ def adult():
 		match = re.compile(xml_regex+'\s*<mode>(.*?)</mode>').findall(content)
 		for name, url, thumb, mode in match:
 			if mode == '1':
-				addDir(name, url, 1, thumb, fanart, isFolder = False)
+				addDir(name, url, 1, thumb, thumb, isFolder = False)
 			else:
-				addDir(name, url, mode, thumb, fanart, isFolder = True)
+				addDir(name, url, mode, thumb, thumb, isFolder = True)
 	except:
 		pass
 	try:
@@ -309,6 +311,7 @@ def adult_addons():
 		else:
 			sys.exit()
 	else:
+		#content = read_file(os.path.expanduser(r'~\Desktop\adultaddons.txt'))
 		content = make_request(adultaddons)
 		match = re.compile(m3u_regex).findall(content)
 		for thumb, name, url in match:
@@ -355,17 +358,20 @@ def adult_videos(url):
 				addDir(name, url, 1, icon, fanart, isFolder = False)
 
 def play_other_video(url):
-	dp = xbmcgui.DialogProgress()
-	dp.create("VietcCloud", "Đang chuyển link ...", "", "")
-	time.sleep(2)
-	dp.close()
-	del dp
-	xbmc.Player().play(url)
+	item  = xbmcgui.ListItem(path = url)
+	xbmc.executebuiltin("XBMC.Notification([COLOR magenta][B]VietcCloud[/B][/COLOR], Đang chuyển link ..., 3000)")
+	xbmc.sleep(1000)
+	xbmc.Player().play(url, item, False, -1)
 
 def play_video(url):
-	media_url = url
-	item = xbmcgui.ListItem(name, path = media_url)
+	item = xbmcgui.ListItem(name, path = url)
 	xbmcplugin.setResolvedUrl(int(sys.argv[1]), True, item)
+	if len(subtitle) > 0:
+		try:
+			xbmc.sleep(3000)
+			xbmc.Player().setSubtitles(subtitle)
+		except:
+			pass
 	return
 
 def channelTester():
@@ -459,27 +465,16 @@ tubemenu = key(myk, mykbase+'PPx9HhpN3l3tnpxcib3-HF79XO59fWm-PqxtvWyuLYkeTc4Q=='
 ytsearchicon = key(myk, mykbase+'PPx9HhpN3l3tnpxcib2NjT5NyUzbe20dDnx96X1eLK')
 
 params = get_params()
-url = None
-name = None
-mode = None
-iconimage = None
+url = name = mode = iconimage = None
 
-try:
-	url = urllib.unquote_plus(params["url"])
-except:
-	pass
-try:
-	name = urllib.unquote_plus(params["name"])
-except:
-	pass
-try:
-	mode = int(params["mode"])
-except:
-	pass
-try:
-	iconimage = urllib.unquote_plus(params["iconimage"])
-except:
-	pass
+try: url = urllib.unquote_plus(params["url"])
+except: pass
+try: name = urllib.unquote_plus(params["name"])
+except: pass
+try: mode = int(params["mode"])
+except: pass
+try: iconimage = urllib.unquote_plus(params["iconimage"])
+except: pass
 
 if mode == None or url == None or len(url) < 1:
 	main()

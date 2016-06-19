@@ -9,6 +9,7 @@ import simplejson as json
 from config import VIETMEDIA_HOST
 from addon import alert, notify, ADDON, ADDON_ID, ADDON_PROFILE
 from platform import PLATFORM
+import uuid
 
 reload(sys);
 sys.setdefaultencoding("utf8")
@@ -23,10 +24,12 @@ USER = ADDON.getSetting('user_id')
 USER_PIN_CODE = ADDON.getSetting('user_pin_code')
 
 def fetch_data(url, headers=None):
+  visitor = get_visitor()
   if headers is None:
     headers = { 
                 'User-agent'    : 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36 VietMedia/1.0',
                 'Referers'      : 'http://www..google.com',
+                'X-Visitor'     : visitor,
                 'X-Version'     : VERSION,
                 'X-User'        : USER,
                 'X-User-Pin'    : USER_PIN_CODE,
@@ -40,6 +43,27 @@ def fetch_data(url, headers=None):
     return json.loads(body)
   except:
     pass
+
+def get_visitor():
+  
+  filename = os.path.join(PROFILE_PATH, 'visitor.dat' )
+  visitor = ''
+
+  if os.path.exists(filename):
+    with open(filename, "r") as f:
+      visitor = f.readline()
+  else:
+    try:
+      visitor = str(uuid.uuid1())
+    except:
+      visitor = str(uuid.uuid4())
+    
+    if not os.path.exists(PROFILE_PATH):
+      os.makedirs(PROFILE_PATH)
+    with open(filename, "w") as f:
+      f.write(visitor)
+
+  return visitor
 
 def play(data):
   link = data["url"]
@@ -69,7 +93,7 @@ def play(data):
         code.write(f.read())
       xbmc.sleep(3000)
       xbmc.Player().setSubtitles(subfile)
-      notify('Tải phụ đề thành công')
+      #notify('Tải phụ đề thành công')
     except:
       notify('Không tải được phụ đề phim.')
 
@@ -84,7 +108,7 @@ def go():
     return
   #Search
   if '__search__' in url:
-    keyboardHandle = xbmc.Keyboard('','Enter search text')
+    keyboardHandle = xbmc.Keyboard('','VietmediaF')
     keyboardHandle.doModal()
     if (keyboardHandle.isConfirmed()):
       queryText = keyboardHandle.getText()
@@ -131,6 +155,11 @@ def go():
       listitems[i] = (item["path"], listItem, not item["is_playable"])
 
   xbmcplugin.addDirectoryItems(HANDLE, listitems, totalItems=len(listitems))
+  #if data["content_type"] != 'episodes':
+  #  try:
+  #    xbmc.executebuiltin('Container.SetViewMode(500)')
+  #  except:
+  #    pass
   xbmcplugin.endOfDirectory(HANDLE, succeeded=True, updateListing=False, cacheToDisc=True)
 
 go()

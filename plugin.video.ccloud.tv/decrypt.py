@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import base64
 mycode = base64.b64decode
 

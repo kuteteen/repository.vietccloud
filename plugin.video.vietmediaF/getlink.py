@@ -8,6 +8,8 @@ from time import sleep
 from addon import notify, alert, ADDON
 import simplejson as json
 import random
+import xbmc
+from config import VIETMEDIA_HOST
 
 def fetch_data(url, headers=None, data=None):
   	if headers is None:
@@ -33,7 +35,7 @@ def fetch_data(url, headers=None, data=None):
 def get(url):
 	if 'fptplay.net' in url:
 		return get_fptplay(url)
-	if 'fshare.vn' in url:
+	if 'www.fshare.vn' in url:
 		return get_fshare(url)
 	if 'hdonline.vn' in url:
 		return get_hdonline(url)
@@ -73,27 +75,56 @@ def get_fptplay(url):
 	pass
 
 def get_hdonline(url):
-	response = fetch_data(url)
-	if not response:
+	attempt = 1
+	MAX_ATTEMPTS = 5
+	
+	while attempt < MAX_ATTEMPTS:
+		if attempt > 1: 
+			sleep(2)
+		url_play = ''
+		notify (u'Lấy link lần thứ #%s'.encode("utf-8") % attempt)
+		attempt += 1
+		response = fetch_data(url)
+		if not response:
+			return ''
+
+		match = re.search(r'\-(\d+)\.?\d*?\.html$', url)
+		if not match:
+			return ''
+		fid = match.group(1)
+
+		match = re.search(r'\-tap-(\d+)-[\d.]+?\.html$', url)
+		if not match:
+			ep = 1
+		else:
+			ep = match.group(1)
+		
+		match = re.search(r'\|(\w{86})\|', response.body)
+		if match:
+			token = match.group(1)
+			
+			match = re.search(r'\|14(\d+)\|', response.body)
+			token_key = '14' + match.group(1)
+			
+			token = token + '-' + token_key
+
+			_x = random.random()
+			url_play = ('http://hdonline.vn/frontend/episode/xmlplay?ep=%s&fid=%s&format=json&_x=%s&token=%s' % (ep, fid, _x, token))
+			break
+		else:
+			match = re.search(r'"file":"(.*?)","', response.body)
+			if match:
+				url_play = 'http://hdonline.vn' + match.group(1).replace('\/','/') + '&format=json'
+				url_play = url_play.replace('ep=1','ep=' + str(ep))
+				break
+	if len(url_play) == 0:
+		notify (u'Không lấy được link.')
 		return ''
 
-	match = re.search(r'\-(\d+)\.?\d*?\.html$', url)
-	if not match:
-		return
-	fid = match.group(1)
-
-	match = re.search(r'\-tap-(\d+)-[\d.]+?\.html$', url)
-	if not match:
-		ep = 1
-	else:
-		ep = match.group(1)
-	
-	_x = random.random()
-	url_play = ('http://hdonline.vn/frontend/episode/xmlplay?ep=%s&fid=%s&format=json&_x=%s' % (ep, fid, _x))
-
 	headers = { 
-				'User-Agent' 	: 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36 VietMedia/1.0',
+				'User-Agent' 	: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36',
 				'Referer'		: url,
+				'Accept'		: 'application/json, text/javascript, */*; q=0.01',
 				'Cookie'		: response.cookiestring
 			}
 	response = fetch_data(url_play, headers)
@@ -123,6 +154,30 @@ def get_fshare(url):
 
 	username = ADDON.getSetting('fshare_username')
 	password = ADDON.getSetting('fshare_password')
+
+	try:
+		url_account = 'http://aku.vn/linksvip'
+		headers = { 
+			'Referer'			: 'http://aku.vn/linksvip',
+			'User-Agent'		: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36'
+		}
+		response = fetch_data(url_account,headers=headers,data={ 'url_download' : url })
+		link_match=re.search("<a href=http://download(.*?)\starget=_blank", response.body)
+		if link_match:
+			return 'http://download' + link_match.group(1)
+
+	except Exception as e:
+		pass
+
+	if len(username) == 0  or len(password) == 0:
+		try:
+			url_account = VIETMEDIA_HOST + '?action=fshare_account'
+			response = fetch_data(url_account)
+			json_data = json.loads(response.body)
+			username = json_data['username']
+			password = json_data['password']
+		except Exception as e:
+			pass
 
 	if len(username) == 0  or len(password) == 0:
 		alert(u'Bạn chưa nhập tài khoản fshare'.encode("utf-8"))
