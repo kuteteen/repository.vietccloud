@@ -1,2 +1,2 @@
-[B]2.0.3[/B]
+[B]2.0.4[/B]
 - Current version

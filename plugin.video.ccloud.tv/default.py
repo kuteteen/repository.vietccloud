@@ -48,8 +48,8 @@ def removeAccents(s):
 	return ''.join((c for c in unicodedata.normalize('NFD', s.decode('utf-8')) if unicodedata.category(c) != 'Mn'))
 
 def media_link():
-	#match = re.compile(media_regex).findall(read_file(os.path.expanduser(r'~\Desktop\mymedialink.txt')))
-	match = re.compile(media_regex).findall(make_request(mymedialink))
+	#match = re.compile(media_regex).findall(read_file(os.path.expanduser(r'~\Desktop\medialink.txt')))
+	match = re.compile(media_regex).findall(make_request(medialink))
 	i=0
 	while i < len(match):
 		match[i] = match[i].decode('base64').decode('base64')
@@ -77,6 +77,30 @@ def platform():
 		return 'atv2'
 	elif xbmc.getCondVisibility('system.platform.ios'):
 		return 'ios'
+
+def get_m3u(url):
+	if url == othersources:
+		mode = '111'
+	else:
+		mode = ''    
+	content = make_request(url)
+	match = re.compile(m3u_regex).findall(content)  
+	for thumb, name, url in match: 
+		if 'tvg-logo' in thumb:
+			thumb = re.compile(m3u_thumb_regex).findall(str(thumb))[0].replace(' ', '%20')
+			if thumb.startswith('http'):
+				addDir(name, url, mode, thumb, thumb, isFolder = True)
+			else:
+				thumb = '%s/%s' % (iconpath, thumb)
+				addDir(name, url, mode, thumb, thumb, isFolder = True)
+		else:
+			addDir(name, url, mode, icon, fanart, isFolder = True)
+
+def get_xml(url):
+	content = make_request(url)
+	match = re.compile(xml_regex+'\s*<mode>(.*?)</mode>').findall(content)
+	for name, url, thumb, mode in match:
+		addDir(name, url, mode, thumb, thumb, isFolder = True)
 
 def main():
 	addDir('[COLOR magenta][B]Kênh Giải Trí Tổng Hợp[/B][/COLOR]', 'giaitri', 110, '%s/tonghop.png'% iconpath, fanart, isFolder = True)
@@ -117,19 +141,7 @@ def clear_cache():  #### plugin.video.xbmchubmaintenance ####
 	sys.exit()
 
 def other_sources():
-	#content = read_file(os.path.expanduser(r'~\Desktop\othersources.txt'))
-	content = make_request(othersources)
-	match = re.compile(m3u_regex).findall(content)
-	for thumb, name, url in match:
-		if 'tvg-logo' in thumb:
-			thumb = re.compile(m3u_thumb_regex).findall(str(thumb))[0].replace(' ', '%20')
-			if thumb.startswith('http'):
-				addDir(name, url, 111, thumb, thumb, isFolder = True)
-			else:
-				thumb = '%s/%s' % (iconpath, thumb)
-				addDir(name, url, 111, thumb, thumb, isFolder = True)
-		else:
-			addDir(name, url, 111, icon, fanart, isFolder = True)
+	get_m3u(othersources)
 
 def other_sources_list(url):
 	content = make_request(url)
@@ -190,19 +202,7 @@ def other_addons():
 		else:
 			sys.exit()
 	else:
-		#content = read_file(os.path.expanduser(r'~\Desktop\otheraddons.txt'))
-		content = make_request(otheraddons)
-		match = re.compile(m3u_regex).findall(content)
-		for thumb, name, url in match:
-			if 'tvg-logo' in thumb:
-				thumb = re.compile(m3u_thumb_regex).findall(str(thumb))[0].replace(' ', '%20')
-				if thumb.startswith('http'):
-					addDir(name, url, None, thumb, thumb, isFolder = True)
-				else:
-					thumb = '%s/%s' % (iconpath, thumb)
-					addDir(name, url, None, thumb, thumb, isFolder = True)
-			else:
-				addDir(name, url, None, icon, fanart, isFolder = True)
+		get_m3u(otheraddons)
 
 def tutorial_links(url):
 	content = make_request(url)
@@ -311,19 +311,7 @@ def adult_addons():
 		else:
 			sys.exit()
 	else:
-		#content = read_file(os.path.expanduser(r'~\Desktop\adultaddons.txt'))
-		content = make_request(adultaddons)
-		match = re.compile(m3u_regex).findall(content)
-		for thumb, name, url in match:
-			if 'tvg-logo' in thumb:
-				thumb = re.compile(m3u_thumb_regex).findall(str(thumb))[0].replace(' ', '%20')
-				if thumb.startswith('http'):
-					addDir(name, url, None, thumb, thumb, isFolder = True)
-				else:
-					thumb = '%s/%s' % (iconpath, thumb)
-					addDir(name, url, None, thumb, thumb, isFolder = True)
-			else:
-				addDir(name, url, None, icon, fanart, isFolder = True)
+		get_m3u(adultaddons)
 
 def adult_videos(url):
 	content = make_request(url)
@@ -359,7 +347,7 @@ def adult_videos(url):
 
 def play_other_video(url):
 	item  = xbmcgui.ListItem(path = url)
-	xbmc.executebuiltin("XBMC.Notification([COLOR magenta][B]VietcCloud[/B][/COLOR], Đang chuyển link ..., 3000)")
+	#xbmc.executebuiltin("XBMC.Notification([COLOR magenta][B]VietcCloud[/B][/COLOR], Đang chuyển link ..., 3000)")
 	xbmc.sleep(1000)
 	xbmc.Player().play(url, item, False, -1)
 
@@ -457,10 +445,10 @@ def addDir(name, url, mode, iconimage, fanart, isFolder = False):
 	return ok
 
 iconpath = key(myk, mykbase+'PPx9HhpM3Z2NPkxNfU')
-mymedialink = key(myk, mykbase+'PPx9HhpNHv1srYzMTY2OPPpN3d6A==')
+medialink = key(myk, mykbase+'PPx9HhpNHbzc7Vz8za2qPY7t0=')
 otheraddons = key(myk, mykbase+'PPx9HhpNPq0crmxMfQ3uPXpN3d6A==')
 othersources = key(myk, mykbase+'PPx9HhpNPq0crm1tLh4djJ6ZfZ7Nc=')
-adultaddons = key(myk, mykbase+'PPx9HhpMXa3tHoxMfQ3uPXpN3d6A==')
+adultaddons = key(myk, mykbase+'PPx9HhpMXa3tHoksTQ5OHY183J49HWmuPt2A==')
 tubemenu = key(myk, mykbase+'PPx9HhpN3l3tnpxcib3-HF79XO59fWm-PqxtvWyuLYkeTc4Q==')
 ytsearchicon = key(myk, mykbase+'PPx9HhpN3l3tnpxcib2NjT5NyUzbe20dDnx96X1eLK')
 
@@ -536,5 +524,11 @@ elif mode == 120:
 
 elif mode == 121:
 	adult_videos(url)
+
+elif mode == 200:
+	get_m3u(url)
+
+elif mode == 210:
+	get_xml(url)
 
 xbmcplugin.endOfDirectory(plugin_handle)
