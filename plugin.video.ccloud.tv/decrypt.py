@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-import xbmc, os, base64
+import base64
 mycode = base64.b64decode
 
 def key(k, e):
@@ -16,7 +16,3 @@ mykbase = mycode('M3QzWjVOYWRtNTdueGUyWHpOM1h5\2\n\LUhSNnRmYjI4amowZGZSM2VtUzJka
                   WjBOX2MyYVB\6\n\WeU56ZTZNM3EyTmZ0a2RuVjMtSE42ZDJVNGNUVzROVG5rOFBpcS0\?\=\4')
 
 myk = mycode('dmlld\1\n\GNjbG91ZA=\2\=\?')
-
-vipPath = 'special://masterprofile/addon_data/plugin.video.ccloud.tv/settings.xml'
-vipHome = os.path.join(xbmc.translatePath('special://home/addons'))
-vip = os.path.join(xbmc.translatePath(vipPath))
