@@ -3,6 +3,7 @@
 import urllib, urllib2, sys, re, os, shutil, base64, time
 import xbmc, xbmcgui, xbmcplugin, xbmcaddon, extract
 from decrypt import key, myk, mykbase
+from viphome import vip, vipName
 
 plugin_handle = int(sys.argv[1])
 mysettings = xbmcaddon.Addon(id = 'plugin.video.ccloud.tv')
@@ -17,10 +18,11 @@ subtitle = key(myk, mykbase+'PPx9HhpLbb3Mrm2cjQtd7Q29yU6szI4NLY0OXeyaLW1eA=')
 #subtitle = xbmc.translatePath(os.path.join(home, "vietccloud.srt"))
 
 xml_regex = '<title>(.*?)</title>\s*<link>(.*?)</link>\s*<thumbnail>(.*?)</thumbnail>'
-m3u_thumb_regex = 'tvg-logo=[\'"](.*?)[\'"]'
+vip_regex = '<setting id="VIP (.+?)".+?value="(.*?)" />'
 group_title_regex = 'group-title=[\'"](.*?)[\'"]'
-m3u_regex = '#(.+?),(.+)\s*(.+)\s*'
 media_regex = '<medialink>(.*?)</medialink>'
+m3u_thumb_regex = 'tvg-logo=[\'"](.*?)[\'"]'
+m3u_regex = '#(.+?),(.+)\s*(.+)\s*'
 
 mydict = {';':'', '&amp;':'&', '&quot;':'"', '.':' ', '&#39;':'\'', '&#038;':'&', '&#039':'\'', '&#8211;':'-', '&#8220;':'"', '&#8221;':'"', '&#8230':'...', 'u0026quot':'"'}
 
@@ -41,6 +43,25 @@ def read_file(file):
 		content = f.read()
 		f.close()
 		return content
+	except:
+		pass
+
+def vip_member():
+	try:
+		content = read_file(vip)
+		match = re.compile(vip_regex).findall(content)
+		for vipNum, vipCode in match:
+			if vipCode == '':
+				pass
+			else:
+				vipPass = vipCode.split('//')[-1]
+				vipTicket = (('%s/%s') % (vipName, vipPass))
+				if os.path.exists(vipTicket):
+					name = vipCode.split('.')[-1]
+					vipIcon = ('%s/icon.png' % vipTicket)
+					addDir('[COLOR orangered][B]%s[/B][/COLOR]' % name, vipCode, None, vipIcon, vipIcon, isFolder = True)
+				else:
+					pass
 	except:
 		pass
 
@@ -82,10 +103,10 @@ def get_m3u(url):
 	if url == othersources:
 		mode = '111'
 	else:
-		mode = ''    
+		mode = ''
 	content = make_request(url)
-	match = re.compile(m3u_regex).findall(content)  
-	for thumb, name, url in match: 
+	match = re.compile(m3u_regex).findall(content)
+	for thumb, name, url in match:
 		if 'tvg-logo' in thumb:
 			thumb = re.compile(m3u_thumb_regex).findall(str(thumb))[0].replace(' ', '%20')
 			if thumb.startswith('http'):
@@ -103,6 +124,10 @@ def get_xml(url):
 		addDir(name, url, mode, thumb, thumb, isFolder = True)
 
 def main():
+	try:
+		vip_member()
+	except:
+		pass
 	addDir('[COLOR magenta][B]Kênh Giải Trí Tổng Hợp[/B][/COLOR]', 'giaitri', 110, '%s/tonghop.png'% iconpath, fanart, isFolder = True)
 	addDir('[COLOR orange][B]Kênh YouTube[/B][/COLOR]', tubemenu, 18, '%s/kenhyoutube.png'% iconpath, fanart, isFolder = True)
 	addDir('[COLOR cyan][B]Other Addons[/B][/COLOR]', 'addons', 100, '%s/addons.png'% iconpath, fanart, isFolder = True)
@@ -244,12 +269,12 @@ def youtube_menu(url):
 	for name, url, thumb, mode in match:
 		addDir(name, url, mode, thumb, thumb, isFolder = True)
 
-def search_youtube(): 
+def search_youtube():
 	try:
 		keyb = xbmc.Keyboard('', 'Enter Channel Name')
 		keyb.doModal()
 		if (keyb.isConfirmed()):
-			searchText = urllib.quote_plus(keyb.getText()) 
+			searchText = urllib.quote_plus(keyb.getText())
 		url = 'https://www.youtube.com/results?search_query=' + searchText
 		youtube_search(url)
 	except:
