@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
-import xbmc, os
+import xbmc
 
 vipPath = 'special://masterprofile/addon_data/plugin.video.ccloud.tv/settings.xml'
-vipName = os.path.join(xbmc.translatePath('special://home/addons'))
-vip = os.path.join(xbmc.translatePath(vipPath))
+vipName = xbmc.translatePath('special://home/addons')
+vip = xbmc.translatePath(vipPath)
