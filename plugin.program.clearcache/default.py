@@ -9,7 +9,7 @@ profile = mysettings.getAddonInfo('profile')
 home = mysettings.getAddonInfo('path')
 fanart = xbmc.translatePath(os.path.join(home, 'icon.png'))
 icon = xbmc.translatePath(os.path.join(home, 'icon.png'))
-xbmc_cache_path = os.path.join(xbmc.translatePath('special://temp'))
+xbmc_cache_path = xbmc.translatePath('special://temp')
 
 def main():
 	addDir('[COLOR yellow][B]Clear Cache[/B][/COLOR]', 'ClearCache', 1, icon, fanart)
@@ -65,27 +65,16 @@ def addDir(name, url, mode, iconimage, fanart):
 	return ok
 
 params = get_params()
-url = None
-name = None
-mode = None
-iconimage = None
+url = name = mode = iconimage = None
 
-try:
-	url = urllib.unquote_plus(params["url"])
-except:
-	pass
-try:
-	name = urllib.unquote_plus(params["name"])
-except:
-	pass
-try:
-	mode = int(params["mode"])
-except:
-	pass
-try:
-	iconimage = urllib.unquote_plus(params["iconimage"])
-except:
-	pass
+try: url = urllib.unquote_plus(params["url"])
+except: pass
+try: name = urllib.unquote_plus(params["name"])
+except: pass
+try: mode = int(params["mode"])
+except: pass
+try: iconimage = urllib.unquote_plus(params["iconimage"])
+except: pass
 
 if mode == None or url == None or len(url) < 1:
 	main()

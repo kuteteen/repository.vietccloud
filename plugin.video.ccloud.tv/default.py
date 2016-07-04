@@ -141,7 +141,7 @@ def main():
 		addDir('[COLOR red][B]Adult XXX (18+)[/B][/COLOR]', 'adult', 98, '%s/18.png'% iconpath, fanart, isFolder = True)
 
 def clear_cache():  #### plugin.video.xbmchubmaintenance ####
-	xbmc_cache_path = os.path.join(xbmc.translatePath('special://temp'))
+	xbmc_cache_path = xbmc.translatePath('special://temp')
 	if os.path.exists(xbmc_cache_path) == True:
 		for root, dirs, files in os.walk(xbmc_cache_path):
 			file_count = 0
