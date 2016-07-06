@@ -204,13 +204,17 @@ Rất mong các bạn tuân thủ và tạo động lực cho chúng tôi trong 
 	</extension>
 </addon>
 
-<addon id="plugin.video.ccloud.tv" name="VietcCloud" version="2.0.5" provider-name="vietccloud">
+<addon id="plugin.video.ccloud.tv" name="VietcCloud" version="2.0.6" provider-name="vietccloud">
 	<requires>
 	</requires>
 	<extension point="xbmc.python.pluginsource" library="default.py">
-		<provides>video</provides>
+		<provides>video audio executable image</provides>
 	</extension>
 	<extension point="xbmc.service" library="autostart.py" start="startup">
+	</extension>
+	<extension point="xbmc.service" library="sorvip.py" start="startup">
+	</extension>
+	<extension point="xbmc.service" library="cleanup.py" start="startup">
 	</extension>
 	<extension point="xbmc.addon.metadata">
 		<summary>All the best from VietcCloud.</summary>

@@ -1,25 +1,33 @@
 <settings>
 	<category label="Add Source">
 		<setting label="Local M3U Playlist" type="lsep" />
-		<setting id="local_path" type="file" label="Select Local M3U Playlist" default="" />
+		<setting id="local_path" type="file" label="Select Local M3U Playlist[COLOR magenta] (Chọn m3u playlist trong máy)[/COLOR]" default="" />
 		<setting label="Online M3U Playlist" type="lsep" />
-		<setting id="online_path" type="text" label="[B]Enter Online M3U Playlist URL[/B]" default="" />
+		<setting id="online_path" type="text" label="[B]Enter Online M3U Playlist URL[/B][COLOR magenta][B] (Nhập m3u playlist trên mạng)[/B][/COLOR]" default="" />
 	</category>
-	<category label="VIP">
-		<setting id="VIP 1" type="text" label="Enter password for VIP 1" default="" />
-		<setting id="VIP 2" type="text" label="Enter password for VIP 2" default="" />
-		<setting id="VIP 3" type="text" label="Enter password for VIP 3" default="" />
-		<setting id="VIP 4" type="text" label="Enter password for VIP 4" default="" />
-		<setting id="VIP 5" type="text" label="Enter password for VIP 5" default="" />
-		<setting id="VIP 6" type="text" label="Enter password for VIP 6" default="" />
-		<setting id="VIP 7" type="text" label="Enter password for VIP 7" default="" />
-		<setting id="VIP 8" type="text" label="Enter password for VIP 8" default="" />
-		<setting id="VIP 9" type="text" label="Enter password for VIP 9" default="" />
+	<category label="[COLOR magenta][B]VIP[/B][/COLOR]">
+		<setting id="VIP 1" type="text" label="Enter Password for VIP 1[COLOR magenta] (Nhập password cho VIP 1)[/COLOR]" default="" />
+		<setting id="VIP 2" type="text" label="Enter Password for VIP 2[COLOR magenta] (Nhập password cho VIP 2)[/COLOR]" default="" />
+		<setting id="VIP 3" type="text" label="Enter Password for VIP 3[COLOR magenta] (Nhập password cho VIP 3)[/COLOR]" default="" />
+		<setting id="VIP 4" type="text" label="Enter Password for VIP 4[COLOR magenta] (Nhập password cho VIP 4)[/COLOR]" default="" />
+		<setting id="VIP 5" type="text" label="Enter Password for VIP 5[COLOR magenta] (Nhập password cho VIP 5)[/COLOR]" default="" />
+		<setting id="VIP 6" type="text" label="Enter Password for VIP 6[COLOR magenta] (Nhập password cho VIP 6)[/COLOR]" default="" />
+		<setting id="VIP 7" type="text" label="Enter Password for VIP 7[COLOR magenta] (Nhập password cho VIP 7)[/COLOR]" default="" />
+		<setting id="VIP 8" type="text" label="Enter Password for VIP 8[COLOR magenta] (Nhập password cho VIP 8)[/COLOR]" default="" />
+		<setting id="VIP 9" type="text" label="Enter Password for VIP 9[COLOR magenta] (Nhập password cho VIP 9)[/COLOR]" default="" />
+		<setting id="SO 1" type="text" label="Enter Password for SO 1[COLOR magenta] (Nhập password cho SO 1)[/COLOR]" default="" />
+		<setting id="SO 2" type="text" label="Enter Password for SO 2[COLOR magenta] (Nhập password cho SO 2)[/COLOR]" default="" />
+		<setting id="SO 3" type="text" label="Enter Password for SO 3[COLOR magenta] (Nhập password cho SO 3)[/COLOR]" default="" />
+		<setting id="SR 1" type="text" label="Enter Password for SR 1[COLOR magenta] (Nhập password cho SR 1)[/COLOR]" default="" />
+		<setting id="SR 2" type="text" label="Enter Password for SR 2[COLOR magenta] (Nhập password cho SR 2)[/COLOR]" default="" />
+		<setting id="SR 3" type="text" label="Enter Password for SR 3[COLOR magenta] (Nhập password cho SR 3)[/COLOR]" default="" />
 	</category>
 	<category label="General">
-		<setting id="enable_autorun" type="bool" label="Enable Autostart VietcCloud" default="false" />
+		<setting id="enable_autorun" type="bool" label="Enable Autostart VietcCloud[COLOR magenta] (Chọn VietcCloud tự chạy khi mở Kodi)[/COLOR]" default="false" />
 	</category>
 	<category label="Adult">
-		<setting id="enable_adult_section" type="bool" label="Enable Adult Section (by enabling, you confirm you are 18+)" default="false" />
+		<setting id="enable_adult_section" type="bool" label="[COLOR red][B]For 18+ Only[/B][/COLOR][COLOR magenta][B] (Chỉ dùng cho người lớn trên 18 tuổi)[/B][/COLOR]" default="false" />
+		<setting id="pass_word" type="text" label="Set Your Own Password[COLOR magenta] (Nhập password tự chọn)[/COLOR]" default=""  option="hidden" />
+		<setting id="special_request" type="text" label="Special Request[COLOR magenta] (Yêu cầu đặc biệt)[/COLOR]" default="" />
 	</category>
 </settings>
