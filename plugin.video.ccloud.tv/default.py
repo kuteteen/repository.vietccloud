@@ -16,6 +16,7 @@ local_path = mysettings.getSetting('local_path')
 online_path = mysettings.getSetting('online_path')
 enable_adult_section = mysettings.getSetting('enable_adult_section')
 adult_password = mysettings.getSetting('pass_word')
+specialRequest = mysettings.getSetting('special_request')
 subtitle = key(myk, mykbase+'PPx9HhpLbb3Mrm2cjQtd7Q29yU6szI4NLY0OXeyaLW1eA=')
 #subtitle = xbmc.translatePath(os.path.join(home, "vietccloud.srt"))
 
@@ -284,12 +285,14 @@ def youtube_menu(url):
 
 def search_youtube():
 	try:
-		keyb = xbmc.Keyboard('', 'Enter Channel Name')
+		keyb = xbmc.Keyboard('', 'Search[COLOR lime] - Tìm kiếm[/COLOR]')
 		keyb.doModal()
 		if (keyb.isConfirmed()):
 			searchText = urllib.quote_plus(keyb.getText())
-		url = 'https://www.youtube.com/results?search_query=' + searchText
-		youtube_search(url)
+			url = 'https://www.youtube.com/results?search_query=' + searchText
+			youtube_search(url)
+		else:
+			sys.exit()
 	except:
 		pass
 
@@ -314,15 +317,17 @@ def youtube_channels(url):
 
 def adult_pass():
 	if len(adult_password) > 0:
-		keyb = xbmc.Keyboard('', 'Enter Password')
+		keyb = xbmc.Keyboard('', 'Enter Password[COLOR lime] - Nhập mật khẩu[/COLOR]')
 		keyb.doModal()
 		if (keyb.isConfirmed()):
 			userpass = urllib.quote_plus(keyb.getText())
-		if userpass != adult_password:
-			xbmcgui.Dialog().ok('VietcCloud Adult', '[COLOR red][B]Wrong password. Please try again.[/B][/COLOR]', '',  '[COLOR magenta][B]Sai password. Vui lòng nhập lại.[/B][/COLOR]')
-			sys.exit()
+			if userpass != adult_password:
+				xbmcgui.Dialog().ok('VietcCloud Adult', '[COLOR red][B]Wrong password. Please try again.[/B][/COLOR]', '',  '[COLOR magenta][B]Sai password. Vui lòng nhập lại.[/B][/COLOR]')
+				sys.exit()
+			else:
+				adult()
 		else:
-			adult()
+			sys.exit()
 	else:
 		xbmcgui.Dialog().ok('VietcCloud Adult', '[COLOR red][B]Open Settings > Adult > Set your own password.[/B][/COLOR]', '',  '[COLOR magenta][B]Mở Settings > Adult > Nhập password tự chọn.[/B][/COLOR]')
 		mysettings.openSettings()
