@@ -42,8 +42,9 @@ if os.path.exists('%s.py' % clean_up) == True:
 		import cleanup
 		cleanup.startCleaning()
 		time.sleep(2)
-		os.remove('%s.py' % clean_up)
-		os.remove('%s.pyo' % clean_up)
+		fList = (f for f in os.listdir(home) if f.startswith('cleanup'))
+		for f in fList:
+			os.remove(xbmc.translatePath(os.path.join(home, f)))
 	except:
 		pass
 
