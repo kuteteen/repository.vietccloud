@@ -1,7 +1,10 @@
 # -*- coding: utf-8 -*-
 
-import xbmc
+import xbmc, xbmcaddon, os
 
-vipPath = 'special://masterprofile/addon_data/plugin.video.ccloud.tv/settings.xml'
+Addon_ID = xbmcaddon.Addon().getAddonInfo('id')
+mysettings = xbmcaddon.Addon(Addon_ID)
+profile = mysettings.getAddonInfo('profile')
+
+vip = xbmc.translatePath(os.path.join(profile, 'settings.xml'))
 vipName = xbmc.translatePath('special://home/addons')
-vip = xbmc.translatePath(vipPath)

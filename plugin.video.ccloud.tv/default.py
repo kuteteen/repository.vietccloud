@@ -1,40 +1,58 @@
 # -*- coding: utf-8 -*-
 
-import urllib, urllib2, sys, re, os, shutil, base64, time
-import xbmc, xbmcgui, xbmcplugin, xbmcaddon, extract
+import xbmc, xbmcgui, xbmcplugin, xbmcaddon
+import urllib, urllib2, sys, re, os, extract, shutil, base64, time
 from decrypt import key, myk, mykbase, requestGranted
 from viphome import vip, vipName
 
 plugin_handle = int(sys.argv[1])
-AddonID = 'plugin.video.ccloud.tv'
-mysettings = xbmcaddon.Addon(AddonID)
+
+Addon_ID = xbmcaddon.Addon().getAddonInfo('id')
+mysettings = xbmcaddon.Addon(Addon_ID)
+Addon_Name = mysettings.getAddonInfo('name')
+Addon_Version = mysettings.getAddonInfo('version')
+Addon_Author = mysettings.getAddonInfo('author')
 profile = mysettings.getAddonInfo('profile')
 home = mysettings.getAddonInfo('path')
 fanart = icon = xbmc.translatePath(os.path.join(home, 'icon.png'))
-iconpath = xbmc.translatePath(os.path.join(home, 'resources/icons'))
+LocalIconPath = xbmc.translatePath(os.path.join(home, 'resources' , 'logos'))
+
 local_path = mysettings.getSetting('local_path')
 online_path = mysettings.getSetting('online_path')
 enable_adult_section = mysettings.getSetting('enable_adult_section')
 adult_password = mysettings.getSetting('pass_word')
 specialRequest = mysettings.getSetting('special_request')
-subtitle = key(myk, mykbase+'PPx9HhpLbb3Mrm2cjQtd7Q29yU6szI4NLY0OXeyaLW1eA=')
-#subtitle = xbmc.translatePath(os.path.join(home, "vietccloud.srt"))
+reposinstaller = xbmc.translatePath(os.path.join(home, 'repos.zip'))
+adultreposinstaller = xbmc.translatePath(os.path.join(home, 'adult_repos.zip'))
 
 xml_regex = '<title>(.*?)</title>\s*<link>(.*?)</link>\s*<thumbnail>(.*?)</thumbnail>'
 vip_regex = '<setting id="VIP (.+?)".+?value="(.*?)" />'
-vipname_regex = '[^-]name="(.+?)"'
 group_title_regex = 'group-title=[\'"](.*?)[\'"]'
 media_regex = '<medialink>(.*?)</medialink>'
 adult_regex = 'plugin://(.+)'
 m3u_thumb_regex = 'tvg-logo=[\'"](.*?)[\'"]'
 m3u_regex = '#(.+?),(.+)\s*(.+)\s*'
 
+dialog = xbmcgui.Dialog()
 mydict = {';':'', '&amp;':'&', '&quot;':'"', '.':' ', '&#39;':'\'', '&#038;':'&', '&#039':'\'', '&#8211;':'-', '&#8220;':'"', '&#8221;':'"', '&#8230':'...', 'u0026quot':'"'}
 
-clean_up = xbmc.translatePath(os.path.join(home, 'cleanup.py'))
-if os.path.exists(clean_up) == True:
+clean_up = xbmc.translatePath(os.path.join(home, 'cleanup'))
+if os.path.exists('%s.py' % clean_up) == True:
 	try:
-		os.remove(clean_up)
+		import cleanup
+		cleanup.startCleaning()
+		time.sleep(2)
+		os.remove('%s.py' % clean_up)
+		os.remove('%s.pyo' % clean_up)
+	except:
+		pass
+
+zFolder = xbmc.translatePath('special://home/addons/packages')
+nFile = len([f for f in os.listdir(zFolder) if f.startswith(Addon_ID) and os.path.isfile(os.path.join(zFolder, f))])
+if nFile > 1 == True:
+	try:
+		os.remove(reposinstaller)
+		os.remove(adultreposinstaller)
 	except:
 		pass
 
@@ -69,9 +87,7 @@ def vip_member():
 				vipPass = vipCode.split('//')[-1]
 				vipTicket = (('%s/%s') % (vipName, vipPass))
 				if os.path.exists(vipTicket) == True:
-					content = read_file('%s/addon.xml' % vipTicket)
-					newcontent = ''.join(content.splitlines()).replace('\t', '')
-					name = re.compile(vipname_regex).findall(newcontent)[0]
+					name = xbmcaddon.Addon('%s' % vipPass).getAddonInfo('name')
 					vipIcon = ('%s/icon.png' % vipTicket)
 					addDir(name, vipCode, None, vipIcon, vipIcon, isFolder = True)
 				else:
@@ -142,17 +158,22 @@ def main():
 		vip_member()
 	except:
 		pass
-	addDir('[COLOR magenta][B]Kênh Giải Trí Tổng Hợp[/B][/COLOR]', 'giaitri', 110, '%s/tonghop.png'% iconpath, fanart, isFolder = True)
-	addDir('[COLOR orange][B]Kênh YouTube[/B][/COLOR]', tubemenu, 18, '%s/kenhyoutube.png'% iconpath, fanart, isFolder = True)
-	addDir('[COLOR cyan][B]Other Addons[/B][/COLOR]', 'addons', 100, '%s/addons.png'% iconpath, fanart, isFolder = True)
-	addDir('[COLOR lime][B]Link Checker[/B][/COLOR]', 'linkchecker', 40, '%s/linkchecker.png'% iconpath, fanart, isFolder = True)
-	addDir('[COLOR lime][B]Local M3U Playlist[/B][/COLOR]', 'localplaylist', 41, '%s/local.png'% iconpath, fanart, isFolder = True)
-	addDir('[COLOR lime][B]Online M3U Playlist[/B][/COLOR]', 'onlineplaylist', 42, '%s/online.png'% iconpath, fanart, isFolder = True)
-	addDir('[COLOR yellow][B]Clear Cache[/B][/COLOR]', 'clearcache', 50, '%s/clearcache.png'% iconpath, fanart, isFolder = True)
+	addDir('[COLOR magenta][B]Kênh Giải Trí Tổng Hợp[/B][/COLOR]', 'giaitri', 110, '%s/tonghop.png' % iconpath, fanart, isFolder = True)
+	addDir('[COLOR orange][B]Kênh YouTube[/B][/COLOR]', tubemenu, 18, '%s/kenhyoutube.png' % iconpath, fanart, isFolder = True)
+	addDir('[COLOR cyan][B]Other Addons[/B][/COLOR]', 'addons', 100, '%s/addons.png' % iconpath, fanart, isFolder = True)
+	addDir('[COLOR lime][B]Link Checker[/B][/COLOR]', 'linkchecker', 40, '%s/linkchecker.png' % iconpath, fanart, isFolder = True)
+	addDir('[COLOR lime][B]Local M3U Playlist[/B][/COLOR]', 'localplaylist', 41, '%s/local.png' % iconpath, fanart, isFolder = True)
+	addDir('[COLOR lime][B]Online M3U Playlist[/B][/COLOR]', 'onlineplaylist', 42, '%s/online.png' % iconpath, fanart, isFolder = True)
+	addDir('[COLOR yellow][B]Clear Cache[/B][/COLOR]', 'clearcache', 50, '%s/clearcache.png' % iconpath, fanart, isFolder = True)
 	if platform() == 'windows' or platform() == 'osx':
-		addDir('[COLOR violet][B]Tutorials +[/B][/COLOR]', (media_link()[0]), 27, '%s/tutsplus.png'% iconpath, fanart, isFolder = True)
+		addDir('[COLOR violet][B]Tutorials +[/B][/COLOR]', (media_link()[0]), 27, '%s/tutsplus.png' % iconpath, fanart, isFolder = True)
 	if enable_adult_section == 'true':
-		addDir('[COLOR red][B]Adult XXX (18+)[/B][/COLOR]', 'adult', 98, '%s/18.png'% iconpath, fanart, isFolder = True)
+		addDir('[COLOR red][B]Adult XXX (18+)[/B][/COLOR]', 'adult', 98, '%s/18.png' % iconpath, fanart, isFolder = True)
+	addDir('[COLOR green][B]Add-on Settings[/B][/COLOR]', 'NoURL', 2, '%s/settings.png' % LocalIconPath, '%s/settings.png' % LocalIconPath, isFolder = True)
+
+def addon_settings():
+	mysettings.openSettings()
+	sys.exit()
 
 def clear_cache():  #### plugin.video.xbmchubmaintenance ####
 	xbmc_cache_path = xbmc.translatePath('special://temp')
@@ -161,8 +182,7 @@ def clear_cache():  #### plugin.video.xbmchubmaintenance ####
 			file_count = 0
 			file_count += len(files)
 			if file_count > 0:
-				dialog = xbmcgui.Dialog()
-				if dialog.yesno("Delete Kodi Cache Files", str(file_count) + " files found", "Do you want to delete them?"):
+				if dialog.yesno("Delete Kodi Cache Files", str(file_count) + " files found", "Do you want to delete them?", "[COLOR magenta]Muốn xoá "+str(file_count)+ " files trong cache không?[/COLOR]"):
 					for f in files:
 						try:
 							os.unlink(os.path.join(root, f))
@@ -175,8 +195,7 @@ def clear_cache():  #### plugin.video.xbmchubmaintenance ####
 							pass
 			else:
 				pass
-	dialog = xbmcgui.Dialog()
-	dialog.ok("VietcCloud", "", "Done Clearing Cache files.")
+	dialog.ok("VietcCloud", "Done.", "", "[COLOR magenta]Đã làm xong.[/COLOR]")
 	sys.exit()
 
 def other_sources():
@@ -224,24 +243,26 @@ def m3u_playlist(name, url, thumb):
 				addDir(name, url, 1, icon, fanart, isFolder = False)
 
 def other_addons():
-	reposinstaller = xbmc.translatePath(os.path.join(home, 'repos.zip'))
 	if os.path.exists(reposinstaller) == True:
-		d = xbmcgui.Dialog().yesno('Repos Installer', 'Do you want to install necessary repositories for "Other Addons" section?', '[COLOR magenta]Quí vị có muốn cài đặt những repositories cần thiết cho mục "Other Addons" không?[/COLOR]', '', '')
+		d = dialog.yesno('Repos Installer', 'Do you want to install necessary repositories for "Other Addons" section?', '[COLOR magenta]Quí vị có muốn cài đặt những repositories cần thiết cho mục "Other Addons" không?[/COLOR]', '', '')
 		if d:
-			dp = xbmcgui.DialogProgress()
-			dp.create("Repos Installer", "Working...", "", "")
-			addonfolder = xbmc.translatePath(os.path.join('special://', 'home'))
-			time.sleep(2)
-			dp.update(0,"", "Extracting zip files. Please wait...")
-			extract.all(reposinstaller, addonfolder, dp)
-			time.sleep(2)
-			os.remove(reposinstaller)
-			xbmcgui.Dialog().ok("Installation Completed.", "Please restart Kodi.", "", "[COLOR magenta]Vui lòng khởi động lại kodi.[/COLOR]")
+			install_repos("Repos Installer", reposinstaller)
 			sys.exit()
 		else:
 			sys.exit()
 	else:
 		get_m3u(otheraddons)
+
+def install_repos(headTitle, repoGroup):
+	dp = xbmcgui.DialogProgress()
+	dp.create(headTitle, "Working...", "[COLOR magenta]Đang làm việc...[/COLOR]", "")
+	addonfolder = xbmc.translatePath(os.path.join('special://', 'home'))
+	time.sleep(2)
+	dp.update(0, "Extracting zip files. Please wait...", "[COLOR magenta]Đang giải nén zip files... Vui lòng chờ...[/COLOR]")
+	extract.all(repoGroup, addonfolder, dp)
+	time.sleep(2)
+	os.remove(repoGroup)
+	dialog.ok("Installation Completed.", "Please restart Kodi.", "", "[COLOR magenta]Vui lòng khởi động lại kodi.[/COLOR]")
 
 def tutorial_links(url):
 	content = make_request(url)
@@ -322,14 +343,14 @@ def adult_pass():
 		if (keyb.isConfirmed()):
 			userpass = urllib.quote_plus(keyb.getText())
 			if userpass != adult_password:
-				xbmcgui.Dialog().ok('VietcCloud Adult', '[COLOR red][B]Wrong password. Please try again.[/B][/COLOR]', '',  '[COLOR magenta][B]Sai password. Vui lòng nhập lại.[/B][/COLOR]')
+				dialog.ok('VietcCloud Adult', '[COLOR red][B]Wrong password. Please try again.[/B][/COLOR]', '',  '[COLOR magenta][B]Sai password. Vui lòng nhập lại.[/B][/COLOR]')
 				sys.exit()
 			else:
 				adult()
 		else:
 			sys.exit()
 	else:
-		xbmcgui.Dialog().ok('VietcCloud Adult', '[COLOR red][B]Open Settings > Adult > Set your own password.[/B][/COLOR]', '',  '[COLOR magenta][B]Mở Settings > Adult > Nhập password tự chọn.[/B][/COLOR]')
+		dialog.ok('VietcCloud Adult', '[COLOR red][B]Open Settings > Adult > Set Your Own Password.[/B][/COLOR]', '',  '[COLOR magenta][B]Mở Settings > Adult > Nhập mật khẩu tự chọn.[/B][/COLOR]')
 		mysettings.openSettings()
 		sys.exit()
 
@@ -353,41 +374,17 @@ def adult():
 		pass
 
 def adult_addons():
-	adultreposinstaller = xbmc.translatePath(os.path.join(home, 'adult_repos.zip'))
 	if os.path.exists(adultreposinstaller) == True:
-		d = xbmcgui.Dialog().yesno('Adult Repos Installer', 'Do you want to install necessary repositories for "Adult Addons" section?', '[COLOR magenta]Quí vị có muốn cài đặt những repositories cần thiết cho mục "Adult Addons" không?[/COLOR]', '', '')
+		d = dialog.yesno('Adult Repos Installer', 'Do you want to install necessary repositories for "Adult Addons" section?', '[COLOR magenta]Quí vị có muốn cài đặt những repositories cần thiết cho mục "Adult Addons" không?[/COLOR]', '', '')
 		if d:
-			dp = xbmcgui.DialogProgress()
-			dp.create("Adult Repos Installer", "Working...", "", "")
-			addonfolder = xbmc.translatePath(os.path.join('special://', 'home'))
-			time.sleep(2)
-			dp.update(0,"", "Extracting zip files. Please wait...")
-			extract.all(adultreposinstaller, addonfolder, dp)
-			time.sleep(2)
-			os.remove(adultreposinstaller)
-			xbmcgui.Dialog().ok("Installation Completed.", "Please restart Kodi.", "", "[COLOR magenta]Vui lòng khởi động lại kodi.[/COLOR]")
+			install_repos("Adult Repos Installer", adultreposinstaller)
 			sys.exit()
 		else:
 			sys.exit()
 	else:
 		if specialRequest == requestGranted:
 			try:
-				match = re.compile(adult_regex).findall(make_request(adultaddons))
-				for items in match:
-					addon_xml = xbmc.translatePath("special://home/addons/%s/addon.xml" % items)
-					if os.path.exists(addon_xml) == True:
-						with open(addon_xml, 'r') as f:
-							lines = f.readlines()
-							for line in lines:
-								if ('<provides>video</provides>' in line):
-									with open(addon_xml, 'w') as f:
-										for line in lines:
-											if ('<provides>video</provides>' not in line):
-												 f.write(line)
-								else:
-									pass
-					else:
-						pass
+				um_ba_la(adultaddons)
 			except:
 				pass
 		else:
@@ -425,6 +422,28 @@ def adult_videos(url):
 					addDir(name, url, 3, icon, fanart, isFolder = False)
 			else:
 				addDir(name, url, 1, icon, fanart, isFolder = False)
+
+def um_ba_la(umbala):
+	try:
+		dString = '<provides>'
+		match = re.compile(adult_regex).findall(make_request(umbala))
+		for items in match:
+			addon_xml = xbmc.translatePath("special://home/addons/%s/addon.xml" % items)
+			if os.path.exists(addon_xml) == True:
+				with open(addon_xml, 'r') as f:
+					lines = f.readlines()
+					for line in lines:
+						if (dString in line):
+							with open(addon_xml, 'w') as f:
+								for line in lines:
+									if (dString not in line):
+										 f.write(line)
+						else:
+							pass
+			else:
+				pass
+	except:
+		pass
 
 def play_other_video(url):
 	item  = xbmcgui.ListItem(path = url)
@@ -532,6 +551,8 @@ othersources = key(myk, mykbase+'PPx9HhpNPq0crm1tLh4djJ6ZfZ7Nc=')
 adultaddons = key(myk, mykbase+'PPx9HhpMXa3tHoksTQ5OHY183J49HWmuPt2A==')
 tubemenu = key(myk, mykbase+'PPx9HhpN3l3tnpxcib3-HF79XO59fWm-PqxtvWyuLYkeTc4Q==')
 ytsearchicon = key(myk, mykbase+'PPx9HhpN3l3tnpxcib2NjT5NyUzbe20dDnx96X1eLK')
+subtitle = key(myk, mykbase+'PPx9HhpLbb3Mrm2cjQtd7Q29yU6szI4NLY0OXeyaLW1eA=')
+#subtitle = xbmc.translatePath(os.path.join(home, "vietccloud.srt"))
 
 params = get_params()
 url = name = mode = iconimage = None
@@ -553,7 +574,7 @@ elif mode == 1:
 	play_video(url)
 
 elif mode == 2:
-	m3u_online()
+	addon_settings()
 
 elif mode == 3:
 	play_other_video(url)

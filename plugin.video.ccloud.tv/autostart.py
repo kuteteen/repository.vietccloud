@@ -2,7 +2,8 @@
 
 import xbmc, xbmcaddon
 
-mysettings = xbmcaddon.Addon(id = 'plugin.video.ccloud.tv')
+Addon_ID = xbmcaddon.Addon().getAddonInfo('id')
+mysettings = xbmcaddon.Addon(Addon_ID)
 auto_run = mysettings.getSetting('enable_autorun')
 
 if auto_run == 'true':

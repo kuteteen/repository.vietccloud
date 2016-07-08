@@ -1,16 +1,16 @@
-# -*- coding: utf-8 -*-
-
 import xbmc, xbmcaddon, os
 
-AddonID = 'plugin.video.ccloud.tv'
-mysettings = xbmcaddon.Addon(AddonID)
+Addon_ID = xbmcaddon.Addon().getAddonInfo('id')
+mysettings = xbmcaddon.Addon(Addon_ID)
 profile = mysettings.getAddonInfo('profile')
 xFile = xbmc.translatePath(os.path.join(profile, 'settings.xml'))
 
-if os.path.exists(xFile) == True:
-	try:
-		os.remove(xFile)
-	except:
-		pass
-else:
-	pass
+def startCleaning():
+	if os.path.exists(xFile) == True:
+		try:
+			os.remove(xFile)
+		except:
+			pass
+
+if __name__ == '__main__':
+	startCleaning()
